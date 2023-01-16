@@ -1,0 +1,16 @@
+.siteHeader {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #0A285F;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

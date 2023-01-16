@@ -1,0 +1,35 @@
+.pokeball {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+    text-align: center;
+    color: white;
+}
+
+.pokeball svg{
+    -webkit-transition: transform 0.4s;
+    transition: transform 0.4s;
+}
+
+.pokeball:hover svg{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.pokeball h2{
+    -webkit-transition: color 0.4s;
+    transition: color 0.4s;
+}
+
+.pokeball:hover h2{
+    color: #FFCC00;
+}
+
+.pokeball svg .pokeballButton{
+    -webkit-transition: fill 0.4s;
+    transition: fill 0.4s;
+}
+
+.pokeball:hover svg .pokeballButton{
+    fill: #ff5c5c;
+}
