@@ -1,35 +1,27 @@
-.pokeball {
-    display: flex;
-    flex-direction: column;
-    row-gap: 4px;
-    text-align: center;
-    color: white;
-}
-
-.pokeball svg{
+.pokeball > svg{
     -webkit-transition: transform 0.4s;
     transition: transform 0.4s;
 }
 
-.pokeball:hover svg{
+.pokeball:hover > svg{
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.pokeball h2{
+.pokeball > p{
     -webkit-transition: color 0.4s;
     transition: color 0.4s;
 }
 
-.pokeball:hover h2{
+.pokeball:hover > p{
     color: #FFCC00;
 }
 
-.pokeball svg .pokeballButton{
+.pokeball > svg > .pokeballButton{
     -webkit-transition: fill 0.4s;
     transition: fill 0.4s;
 }
 
-.pokeball:hover svg .pokeballButton{
+.pokeball:hover > svg > .pokeballButton{
     fill: #ff5c5c;
 }
