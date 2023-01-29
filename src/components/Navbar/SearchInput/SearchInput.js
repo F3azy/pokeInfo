@@ -1,8 +1,12 @@
 import { Button, Box, InputGroup, InputLeftElement, InputRightElement, Input } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link } from "react-router-dom";
 
 const SearchInput = () => {
+    const [pokemonName , setPokemonName] = useState(() => {return ""});
+
+
   return (
     <Box>
         <InputGroup>
@@ -20,12 +24,15 @@ const SearchInput = () => {
                 color="yellow.200" 
                 placeholder='Pokemon name...'
                 _placeholder={{ opacity: 0.4, color: 'yellow.200' }} 
+                onChange={(ev) => setPokemonName(ev.target.value)}
             />
 
             <InputRightElement w="64px">
-                <Button colorScheme="yellow">
-                        Search
-                </Button>
+                <Link to="/pokemonInfo" state={{PokemonName: pokemonName}}>
+                    <Button colorScheme="yellow">
+                            Search
+                    </Button>
+                </Link>
             </InputRightElement>
         </InputGroup>
     </Box>

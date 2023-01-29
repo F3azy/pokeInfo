@@ -22,6 +22,7 @@ function PokeballList() {
   return (
     <Flex w="100%" my={["36px", "20px"]} direction="column" align="center">
         <Flex w={["100%", "60%"]} direction="column" rowGap={["40px", "28px"]}>
+
             <Flex wrap="wrap" justify="space-between" mx={["8px", "0"]} gap={["32px 0", "16px 100px"]}>
                 {pokemons.map(pokemon => (<Pokeball key={pokemon.name} name={pokemon.name} />))}
             </Flex>
@@ -30,6 +31,7 @@ function PokeballList() {
                 <Button onClick={() => setQuery(previous)} colorScheme="yellow" isDisabled={!previous} leftIcon={<ArrowBackIcon />}>Previous</Button>
                 <Button onClick={() => setQuery(next)} colorScheme="yellow" isDisabled={!next} rightIcon={<ArrowForwardIcon />}>Next</Button>
             </Flex>
+            
         </Flex>
     </Flex>
   )

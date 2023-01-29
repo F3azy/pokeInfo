@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "./components/Layout/Layout";
-import PokeballList from "./components/PokeballList";
+import PokeballList from "./pages/PokeballList";
 import {theme} from "./styles/theme"
 import "./styles/globals.css"
+import PokemonInfo from "./pages/PokemonInfo";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<PokeballList />} />
-              {/* <Route path="*" element={<NoPage />} /> */}
+              <Route path="/pokemonInfo" element={<PokemonInfo />} />
             </Route>
           </Routes>
       </BrowserRouter>
