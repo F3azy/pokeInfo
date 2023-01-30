@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "./components/Layout/Layout";
-// import PokeballList from "./pages/PokeballList";
 import Home from "./pages/Home";
 import {theme} from "./styles/theme"
 import "./styles/globals.css"
