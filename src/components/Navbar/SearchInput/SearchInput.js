@@ -24,12 +24,12 @@ const SearchInput = () => {
                 color="yellow.200" 
                 placeholder='Pokemon name...'
                 _placeholder={{ opacity: 0.4, color: 'yellow.200' }} 
-                onChange={(ev) => setPokemonName(ev.target.value)}
+                onChange={(ev) => setPokemonName(ev.target.value.toLowerCase())}
             />
 
-            <InputRightElement w="64px">
+            <InputRightElement w="60px">
                 <Link to="/pokemonInfo" state={{PokemonName: pokemonName}}>
-                    <Button colorScheme="yellow">
+                    <Button w="60px" colorScheme="yellow">
                             Search
                     </Button>
                 </Link>
