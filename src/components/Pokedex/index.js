@@ -5,8 +5,11 @@ import PokeImg from './PokeImg';
 const Pokedex = ({Pokemon}) => {
 
   return (
-    <Flex mx={["8px", "0"]}>
-        <PokeImg url={Pokemon.sprites.front_default} />
+    <Flex w="100%" mx={["8px", "0"]} my="24px">
+        <PokeImg url={Pokemon.sprites} />
+        <Flex bg="red" grow="1" ml={["8px", "16px"]}>
+
+        </Flex>
     </Flex>
   )
 };
