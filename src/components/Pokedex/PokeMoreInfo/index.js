@@ -1,20 +1,10 @@
 import { 
     Flex, 
     Heading,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalBody,
-    ModalCloseButton,
     useDisclosure,
-    Grid,
-    GridItem,
-    Text,
     } from '@chakra-ui/react';
 import React, {useState, useEffect } from 'react';
 import Move from './Move';
-import { capitalizeFirstLetter } from '../../../utils';
 import MoveModal from './MoveModal';
 
 const PokeMoreInfo = ({moves}) => {

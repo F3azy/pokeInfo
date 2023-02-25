@@ -18,7 +18,7 @@ const PokeBasicInfo = ({name, id, height, weight, types, stats}) => {
             <GridItem><Text>Weight: {weight/10}Kg</Text></GridItem>
             <GridItem><Text>Type: {types.map((typ, idx) => typ.type.name.concat((types[idx+1]) ? ", " : ""))}</Text></GridItem>
             {stats.map(function(stat) {
-              return <GridItem><Text key={stat.stat.name}>{(stat.stat.name=="hp") ? "HP:" : capitalizeFirstLetter(stat.stat.name)+":"} {stat.base_stat}</Text></GridItem>
+              return <GridItem><Text key={stat.stat.name}>{(stat.stat.name==="hp") ? "HP:" : capitalizeFirstLetter(stat.stat.name)+":"} {stat.base_stat}</Text></GridItem>
             })}
         </Grid>
     </Flex>
