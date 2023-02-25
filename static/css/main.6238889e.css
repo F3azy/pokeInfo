@@ -1,0 +1,2 @@
+.pokeball>svg{transition:-webkit-transform .4s;transition:transform .4s;transition:transform .4s,-webkit-transform .4s}.pokeball:hover>svg{cursor:pointer;-webkit-transform:scale(1.1);transform:scale(1.1)}.pokeball>p{transition:color .4s}.pokeball:hover>p{color:#fc0}.pokeball>svg>.pokeballButton{transition:fill .4s}.pokeball:hover>svg>.pokeballButton{fill:#ff5c5c}*{box-sizing:border-box}body,html{margin:0;padding:0}
+/*# sourceMappingURL=main.6238889e.css.map*/
