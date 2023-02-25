@@ -26,7 +26,7 @@ const PokeMoreInfo = ({moves}) => {
             setLoading(false);
             setMove(mov);
         });
-    }, [query]);
+    }, [query, isOpen]);
 
     function showModal(e) {
         setLoading(true);

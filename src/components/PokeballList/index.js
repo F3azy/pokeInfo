@@ -16,13 +16,14 @@ function PokeballList() {
         fetch(query)
         .then(response => response.json())
         .then(allPokemon => {
-            setTimeout(() => {
+            let timer = setTimeout(() => {
                 setLoading(false);
             }, 1000);
             // setLoading(false);
             setPokemons(allPokemon.results);
             setNext(allPokemon.next);
             setPrevious(allPokemon.previous);
+            return () => clearTimeout(timer);
         });
     }, [query]);
 
