@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter , Routes, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -9,14 +9,14 @@ import PokemonInfo from "./pages/PokemonInfo";
 function App() {
   return (
     <ChakraProvider theme={theme}>
-        <BrowserRouter>
+        <HashRouter >
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="/pokemonInfo" element={<PokemonInfo />} />
             </Route>
           </Routes>
-      </BrowserRouter>
+      </HashRouter >
     </ChakraProvider>
   );
 }
