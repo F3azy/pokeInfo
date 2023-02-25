@@ -8,21 +8,26 @@ function PokeballList() {
     const [next, setNext] = useState(() => {return ''});
     const [previous, setPrevious] = useState(() => {return ''});
     const [pokemons, setPokemons] = useState(() => {return []});
+    const [loading, setLoading] = useState(() => {return true});
 
     useEffect(() => {
+        setLoading(true);
         fetch(query)
         .then(response => response.json())
         .then(allPokemon => {
+            setLoading(false);
             setPokemons(allPokemon.results);
             setNext(allPokemon.next);
             setPrevious(allPokemon.previous);
         });
     }, [query]);
 
+    if (loading) return "Loading...";
+
   return (
         <>
             <Flex wrap="wrap" justify="space-between" mx={["8px", "0"]} gap={["32px 0", "16px 100px"]}>
-                {pokemons?.map(pokemon => (<Pokeball key={pokemon.name} name={pokemon.name} />)) ?? "Loading..."}
+                {pokemons.map(pokemon => (<Pokeball key={pokemon.name} name={pokemon.name} />))}
             </Flex>
 
             <Flex justify="space-between" mx={["8px", "0"]}>

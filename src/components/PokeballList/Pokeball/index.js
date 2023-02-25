@@ -3,12 +3,9 @@ import React from 'react'
 import PokeballIcon from '../../../icons/PokeballIcon';
 import '../../../styles/PokeballAnimation.css'
 import { Link } from "react-router-dom";
+import { capitalizeFirstLetter } from '../../../utils';
 
 function Pokeball({name}) {
-
-    function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      }
 
   return (
     <Link to="/pokemonInfo" state={{PokemonName: name}}>
