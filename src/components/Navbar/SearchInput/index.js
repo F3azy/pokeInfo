@@ -5,7 +5,12 @@ import { Link } from "react-router-dom";
 
 const SearchInput = () => {
     const [pokemonName , setPokemonName] = useState(() => {return ""});
+    const [input , setInput] = useState(() => {return ""});
 
+    function getName(ev) {
+        setInput(ev.target.value);
+        setPokemonName(ev.target.value.toLowerCase());
+    }
 
   return (
     <Box>
@@ -24,12 +29,13 @@ const SearchInput = () => {
                 color="yellow.200" 
                 placeholder='Pokemon name...'
                 _placeholder={{ opacity: 0.4, color: 'yellow.200' }} 
-                onChange={(ev) => setPokemonName(ev.target.value.toLowerCase())}
+                value={input}
+                onChange={getName}
             />
 
             <InputRightElement w="60px">
                 <Link to="/pokemonInfo" state={{PokemonName: pokemonName}}>
-                    <Button w="60px" colorScheme="yellow">
+                    <Button w="60px" colorScheme="yellow" onClick={() => setInput("")}>
                             Search
                     </Button>
                 </Link>

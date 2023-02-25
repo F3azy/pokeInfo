@@ -27,4 +27,4 @@ const PokeballIcon = ({size}) => {
   )
 }
 
-export default PokeballIcon
+export default PokeballIcon;

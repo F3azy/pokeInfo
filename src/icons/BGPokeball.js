@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from '@chakra-ui/react';
 
-const PokeballIcon = ({size}) => {
+const BGPokeball = ({size}) => {
   return (
     <Icon width={size} height={size} position="absolute" transform="rotate(45deg);" viewBox="0 0 501 502" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M250.501 492C383.325 492 491 384.101 491 251C491 117.899 383.325 10 250.501 10C117.677 10 10.002 117.899 10.002 251C10.002 384.101 117.677 492 250.501 492Z" fill="#F2F2F2" stroke="#C7C7C7" stroke-width="20"/>
@@ -12,4 +12,4 @@ const PokeballIcon = ({size}) => {
   )
 };
 
-export default PokeballIcon;
+export default BGPokeball;

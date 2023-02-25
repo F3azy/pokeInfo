@@ -6,7 +6,7 @@ const Move = ({moveName, fun}) => {
     // console.log(this);
 
   return (
-    <Button value={moveName} onClick={fun} bg="brand.tertiary" _hover={{ bg: "brand.quaternary" }} flexBasis={["40%", "12.5%"]}>{capitalizeFirstLetter(moveName)}</Button>
+    <Button value={moveName} onClick={fun} bg="brand.tertiary" _hover={{ bg: "brand.quaternary" }} flexBasis={["48%", "12.5%"]}>{capitalizeFirstLetter(moveName)}</Button>
   )
 }
 

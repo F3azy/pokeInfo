@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import PokeImg from './PokeImg';
 import PokeBasicInfo from './PokeBasicInfo';
 import PokeMoreInfo from './PokeMoreInfo';
+import Loading from '../Loading';
+import NotFound from '../NotFound';
 
 const Pokedex = () => {
   let { state } = useLocation();
@@ -11,6 +13,7 @@ const Pokedex = () => {
   const [query, setQuery] = useState(() => {return 'https://pokeapi.co/api/v2/pokemon/'+state.PokemonName});
   const [Pokemon, setPokemon] = useState(() => {return null});
   const [loading, setLoading] = useState(() => {return true});
+  const [notFound, setNotFound] = useState(() => {return false});
 
   useEffect(() => {
     setQuery('https://pokeapi.co/api/v2/pokemon/'+state.PokemonName);
@@ -18,15 +21,25 @@ const Pokedex = () => {
 
   useEffect(() => {
       setLoading(true);
+      setNotFound(false);
       fetch(query)
       .then(response => response.json())
       .then(pokemon => {
-          setLoading(false);
+          setTimeout(() => {
+            setLoading(false);
+          }, 1000);
+          // setLoading(false);
           setPokemon(pokemon);
+      })
+      .catch(error => {
+        setNotFound(true);
+        console.log("Pokemon not Found", error);
       });
+
   }, [query]);
 
-  if (loading) return "Loading...";
+  if(notFound) return <NotFound />;
+  if(loading) return <Loading marginHorizontal={["324px","240px"]}/>;
 
   return (
     <Flex w="100%" mx={["8px", "0"]} my={["12px", "24px"]} rowGap={["12px", "24px"]} direction="column">

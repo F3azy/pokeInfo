@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Pokeball from './Pokeball';
 import { Button, Flex } from '@chakra-ui/react';
 import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
+import Loading from '../Loading';
 
 function PokeballList() {
     const [query, setQuery] = useState(() => {return 'https://pokeapi.co/api/v2/pokemon?limit=20'});
@@ -15,14 +16,17 @@ function PokeballList() {
         fetch(query)
         .then(response => response.json())
         .then(allPokemon => {
-            setLoading(false);
+            setTimeout(() => {
+                setLoading(false);
+            }, 1000);
+            // setLoading(false);
             setPokemons(allPokemon.results);
             setNext(allPokemon.next);
             setPrevious(allPokemon.previous);
         });
     }, [query]);
 
-    if (loading) return "Loading...";
+    if(loading) return <Loading marginHorizontal={["300px","220px"]} />;
 
   return (
         <>
