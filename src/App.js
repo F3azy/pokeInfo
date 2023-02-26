@@ -2,8 +2,8 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import {theme} from "./styles/theme"
-import "./styles/globals.css"
+import {theme} from "./styles/theme";
+import "./styles/globals.css";
 import PokemonInfo from "./pages/PokemonInfo";
 
 function App() {
