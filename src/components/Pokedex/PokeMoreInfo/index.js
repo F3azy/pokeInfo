@@ -31,7 +31,12 @@ const PokeMoreInfo = ({moves}) => {
     function showModal(e) {
         setLoading(true);
         setMoveName(e.target.value.toLowerCase());
-        onOpen();
+        let timer = setTimeout(() => {
+            onOpen();
+          }, 250);
+
+          return () => clearTimeout(timer);
+        // onOpen();
     }
 
   return (
