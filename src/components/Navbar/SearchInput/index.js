@@ -35,7 +35,7 @@ const SearchInput = () => {
 
             <InputRightElement w="60px">
                 <Link to="/pokemonInfo" state={{PokemonName: pokemonName}}>
-                    <Button w="60px" colorScheme="yellow" onClick={() => setInput("")}>
+                    <Button w="60px" colorScheme="yellow" onClick={() => setInput("")} isDisabled={input.length<1} >
                             Search
                     </Button>
                 </Link>
