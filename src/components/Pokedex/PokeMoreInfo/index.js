@@ -23,20 +23,20 @@ const PokeMoreInfo = ({moves}) => {
         fetch(query)
         .then(response => response.json())
         .then(mov => {
-            setLoading(false);
+            let timer = setTimeout(() => {
+              setLoading(false);
+            }, 1000);
+
             setMove(mov);
+
+            return () => clearTimeout(timer);
         });
     }, [query, isOpen]);
 
     function showModal(e) {
         setLoading(true);
         setMoveName(e.target.value.toLowerCase());
-        let timer = setTimeout(() => {
-            onOpen();
-          }, 250);
-
-          return () => clearTimeout(timer);
-        // onOpen();
+        onOpen();
     }
 
   return (
@@ -47,7 +47,7 @@ const PokeMoreInfo = ({moves}) => {
         <Flex w="100%" h="240px" wrap="wrap" rowGap="12px" justify={["space-between", "flex-start"]} columnGap={["", "52px"]} color="brand.primary" fontSize={["16px", "20px"]} pt={["8px", "12px"]} overflowY="scroll">
         {moves.map(move => (<Move key={move.move.name} moveName={move.move.name} fun={showModal} />))}
         </Flex>
-        <MoveModal isOpen={isOpen} onClose={onClose} move={move} moveName={moveName} loading={loading} />
+        <MoveModal isOpen={isOpen} onClose={onClose} move={move} moveName={moveName} loading={loading}/>
     </Flex>
   )
 }
