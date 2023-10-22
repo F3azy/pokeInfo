@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Heading, Text, Grid, GridItem  } from '@chakra-ui/react';
-import { capitalizeFirstLetter } from '../../../utils';
+import { capitalizeFirstLetter } from '../utils';
 
 const PokeBasicInfo = ({name, id, height, weight, types, stats}) => {
   return (

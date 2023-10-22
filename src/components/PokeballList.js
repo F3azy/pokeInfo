@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Pokeball from './Pokeball';
 import { Button, Flex } from '@chakra-ui/react';
 import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
-import Loading from '../Loading';
+import Loading from './Loading';
 
 function PokeballList() {
     const [query, setQuery] = useState(() => {return 'https://pokeapi.co/api/v2/pokemon?limit=20'});

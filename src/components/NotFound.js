@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Text } from '@chakra-ui/react';
-import PokeballIcon from '../../icons/PokeballIcon';
+import { PokeballIcon } from '../icons';
 
 const NotFound = () => {
   return (

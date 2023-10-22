@@ -1,6 +1,6 @@
 import { Flex, Text } from '@chakra-ui/react';
 import React from 'react';
-import PokeballIcon from '../../icons/PokeballIcon';
+import { PokeballIcon } from '../icons';
 
 const Loading = ({marginHorizontal}) => {
   return (

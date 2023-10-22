@@ -1,6 +1,6 @@
 import React from 'react'
 import { Flex, Image } from '@chakra-ui/react';
-import BGPokeball from '../../../icons/BGPokeball';
+import { BGPokeball } from '../icons';
 
 const PokeImg = ({url}) => {
   return (

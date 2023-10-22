@@ -1,5 +1,5 @@
 import React from 'react'
-import PokeballList from '../../components/PokeballList'
+import { PokeballList } from '../components'
 import { Flex } from '@chakra-ui/react';
 
 const Home = () => {

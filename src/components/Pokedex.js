@@ -4,8 +4,8 @@ import { useLocation } from 'react-router-dom';
 import PokeImg from './PokeImg';
 import PokeBasicInfo from './PokeBasicInfo';
 import PokeMoreInfo from './PokeMoreInfo';
-import Loading from '../Loading';
-import NotFound from '../NotFound';
+import Loading from './Loading';
+import NotFound from './NotFound';
 
 const Pokedex = () => {
   let { state } = useLocation();

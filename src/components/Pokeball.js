@@ -1,9 +1,9 @@
 import { Flex, Text } from '@chakra-ui/react';
 import React from 'react'
-import PokeballIcon from '../../../icons/PokeballIcon';
-import '../../../styles/PokeballAnimation.css'
+import { PokeballIcon } from '../icons';
+import '../styles/PokeballAnimation.css'
 import { Link } from "react-router-dom";
-import { capitalizeFirstLetter } from '../../../utils';
+import { capitalizeFirstLetter } from '../utils';
 
 function Pokeball({name}) {
 
