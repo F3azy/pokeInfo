@@ -1,7 +1,7 @@
 import Home from "./Home";
-import PokemonInfo from "./PokemonInfo";
+import Pokedex from "./Pokedex";
 
 export {
     Home,
-    PokemonInfo,
+    Pokedex,
 };

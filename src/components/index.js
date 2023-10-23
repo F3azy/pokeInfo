@@ -1,9 +1,17 @@
 import Layout from "./Layout";
-import PokeballList from "./PokeballList";
-import Pokedex from "./Pokedex"
+import Loading from "./Loading";
+import Pokeball from "./Pokeball";
+import PokeImg from "./PokeImg";
+import PokeBasicInfo from "./PokeBasicInfo";
+import PokeMoreInfo from "./PokeMoreInfo";
+import NotFound from "./NotFound";
 
 export {
     Layout,
-    PokeballList,
-    Pokedex,
-}
+    Loading,
+    Pokeball,
+    PokeImg,
+    PokeBasicInfo,
+    PokeMoreInfo,
+    NotFound,
+};
