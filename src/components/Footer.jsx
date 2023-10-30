@@ -7,8 +7,6 @@ const Footer = () => {
     <Flex
       as="footer"
       w="100%"
-      position={{ xl: "absolute" }}
-      bottom="0"
       bg="brand.primary"
       p="20px 0"
       justify="center"

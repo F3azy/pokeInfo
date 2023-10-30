@@ -12,7 +12,6 @@ import {
   Text,
   Spinner,
   Flex,
-  Center,
 } from "@chakra-ui/react";
 
 const MoveModal = ({ moveName, move, isOpen, onClose, loading }) => {

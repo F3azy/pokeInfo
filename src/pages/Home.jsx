@@ -1,32 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { Flex, Button } from "@chakra-ui/react";
-import { Pokeball, Loading } from "../components";
+import { Pokeball } from "../components";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
 
 const Home = () => {
-  const [query, setQuery] = useState(() => {return "https://pokeapi.co/api/v2/pokemon?limit=20";});
-  const [next, setNext] = useState(() => { return "";});
-  const [previous, setPrevious] = useState(() => {return "";});
-  const [pokemons, setPokemons] = useState(() => {return [];});
-  const [loading, setLoading] = useState(() => {return true;});
+  const [query, setQuery] = useState(() => {
+    return "https://pokeapi.co/api/v2/pokemon";
+  });
+  const [next, setNext] = useState(() => {
+    return "";
+  });
+  const [previous, setPrevious] = useState(() => {
+    return "";
+  });
+  const [pokemons, setPokemons] = useState(() => {
+    return [];
+  });
 
   useEffect(() => {
-    setLoading(true);
-    fetch(query)
+    const controller = new AbortController();
+    fetch(query, {
+      signal: controller.signal,
+    })
       .then((response) => response.json())
       .then((allPokemon) => {
-        let timer = setTimeout(() => {
-          setLoading(false);
-        }, 1000);
-        // setLoading(false);
         setPokemons(allPokemon.results);
         setNext(allPokemon.next);
         setPrevious(allPokemon.previous);
-        return () => clearTimeout(timer);
+
+        return () => controller.abort();
       });
   }, [query]);
-
-    if(loading) return <Loading />;
 
   return (
     <Flex
@@ -45,7 +49,7 @@ const Home = () => {
         ))}
       </Flex>
 
-      <Flex justify="space-between" >
+      <Flex justify="space-between">
         <Button
           onClick={() => setQuery(previous)}
           colorScheme="yellow"

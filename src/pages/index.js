@@ -1,7 +1,2 @@
-import Home from "./Home";
-import Pokedex from "./Pokedex";
-
-export {
-    Home,
-    Pokedex,
-};
+export { default as Home } from "./Home";
+export { default as Pokedex } from "./Pokedex";
