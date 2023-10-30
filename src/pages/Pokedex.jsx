@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex, VStack } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
 import {
   PokeImg,
@@ -44,13 +44,14 @@ const Pokedex = () => {
   if (loading) return <Loading />;
 
   return (
-    <Flex
-      my={{ base: "12px", lg: "24px" }}
-      rowGap={{ base: "12px", lg: "24px" }}
-      direction="column"
-      mx={{ base: "8px", md: "32px", lg: "0" }}
-    >
-      <Flex w="100%" direction={{ base: "column", xl: "row" }} justify="center">
+    <VStack gap={{ base: "12px", lg: "24px" }}>
+      <Flex 
+      w="100%"
+      direction={{ base: "column", xl: "row" }} 
+      justify="center"
+      align={{xl: "center"}}
+      gap={{ base: "12px", lg: "24px" }}
+      >
         <PokeImg url={Pokemon.sprites} />
         <PokeBasicInfo
           name={Pokemon.name}
@@ -62,7 +63,7 @@ const Pokedex = () => {
         />
       </Flex>
       <PokeMoreInfo moves={Pokemon.moves} />
-    </Flex>
+    </VStack>
   );
 };
 

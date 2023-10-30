@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <Flex
-      as="nav"
+      as="header"
       w="100%"
       bg="brand.primary"
       py="16px"
@@ -14,7 +14,8 @@ const Navbar = () => {
       color="white"
     >
       <Flex
-        w={{ base: "100%", lg: "60%" }}
+        as="nav"
+        w={{ base: "100%", lg: "80%", '2xl': "60%" }}
         mx={{ base: "8px", md: "32px", lg: "0" }}
         align="center"
         justify="space-between"

@@ -60,6 +60,17 @@ const PokeMoreInfo = ({ moves }) => {
       overflowY="scroll"
       pt={{ base:"8px", lg:"12px"}}
       gap={{ base:"16px", md:"20px"}}
+      css={{
+        '&::-webkit-scrollbar': {
+          width: '14px',
+        },
+        '&::-webkit-scrollbar-thumb': {
+          background: "#FFCC00",
+          border: "4px solid rgba(0, 0, 0, 0)",
+          backgroundClip: "padding-box",
+          borderRadius: '24px',
+        },
+      }}
       >
       {moves.map((move) => (
           <GridItem key={move.move.name}>

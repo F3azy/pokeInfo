@@ -1,17 +1,16 @@
 import React from "react";
-import { Flex, Heading, Text, Grid, GridItem } from "@chakra-ui/react";
+import { Flex, Heading, Grid, GridItem, Stat, StatLabel, StatNumber } from "@chakra-ui/react";
 import { capitalizeFirstLetter } from "../utils";
 
 const PokeBasicInfo = ({ name, id, height, weight, types, stats }) => {
   return (
     <Flex
-      border={{base: "solid 8px", md:"solid 12px"}}
+      border={{ base:"solid 8px", lg:"solid 12px"}}
       borderRadius="16px"
-      borderColor={{base: "brand.primary", md:"brand.primary"}}
+      borderColor={{ base:"brand.primary", lg:"brand.primary"}}
       direction="column"
       rowGap={{base: "4px", md:"8px"}}
       basis="70%"
-      mt={{base: "12px", md:""}}
       p={{base: "12px", md:"16px"}}
     >
       <Heading
@@ -28,32 +27,44 @@ const PokeBasicInfo = ({ name, id, height, weight, types, stats }) => {
         fontSize={{base: "16px", md:"20px"}}
         templateRows={{base: "repeat(5, 1fr)", md:"repeat(3, 1fr)"}}
         templateColumns={{base: "repeat(2, 1fr)", md:"repeat(3, 1fr)"}}
-        rowGap={{base: 4, md:12}}
-        columnGap={{base: 4, md:20}}
+        rowGap={{base: 4, md: 6}}
+        columnGap={10}
+        py="8px"
+        alignItems="center"
       >
         <GridItem>
-          <Text>Height: {height * 10}cm</Text>
+          <Stat>
+            <StatLabel color="brand.quaternary">Height:</StatLabel>
+            <StatNumber>{height * 10}cm</StatNumber>
+          </Stat>
         </GridItem>
         <GridItem>
-          <Text>Weight: {weight / 10}Kg</Text>
+          <Stat>
+              <StatLabel color="brand.quaternary">Weight:</StatLabel>
+              <StatNumber>{weight / 10}Kg</StatNumber>
+          </Stat>
         </GridItem>
         <GridItem>
-          <Text>
-            Type:{" "}
-            {types.map((typ, idx) =>
-              typ.type.name.concat(types[idx + 1] ? ", " : "")
-            )}
-          </Text>
+          <Stat>
+              <StatLabel color="brand.quaternary">Type:</StatLabel>
+              <StatNumber>
+              {types.map((typ, idx) =>
+                typ.type.name.concat(types[idx + 1] ? ", " : "")
+              )}
+              </StatNumber>
+          </Stat>
         </GridItem>
         {stats.map((stat) => {
           return (
             <GridItem key={stat.stat.name}>
-              <Text>
+              <Stat>
+                <StatLabel color="brand.quaternary">
                 {stat.stat.name === "hp"
                   ? "HP:"
-                  : capitalizeFirstLetter(stat.stat.name) + ":"}{" "}
-                {stat.base_stat}
-              </Text>
+                  : capitalizeFirstLetter(stat.stat.name) + ":"}
+                </StatLabel>
+                <StatNumber>{stat.base_stat}</StatNumber>
+              </Stat>
             </GridItem>
           );
         })}

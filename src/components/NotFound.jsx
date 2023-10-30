@@ -7,7 +7,6 @@ const NotFound = () => {
     <Flex
       width="100%"
       id="pokeLoad"
-      h={{base: "80vh", md: "90vh"}}
       direction="column"
       justify="center"
       align="center"

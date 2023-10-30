@@ -33,12 +33,7 @@ const Home = () => {
   }, [query]);
 
   return (
-    <Flex
-      direction="column"
-      my={{ base: "36px", lg: "20px" }}
-      rowGap={{ base: "40px", lg: "28px" }}
-      mx={{ base: "8px", md: "32px", lg: "0" }}
-    >
+    <>
       <Flex
         wrap="wrap"
         justify="space-between"
@@ -67,7 +62,7 @@ const Home = () => {
           Next
         </Button>
       </Flex>
-    </Flex>
+      </>
   );
 };
 

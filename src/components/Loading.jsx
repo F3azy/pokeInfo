@@ -7,7 +7,6 @@ const Loading = () => {
     <Flex
       width="100%"
       id="pokeLoad"
-      h={{base: "90vh", xl: ""}}
       justify="center"
       align="center"
       letterSpacing="2px"

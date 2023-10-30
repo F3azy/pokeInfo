@@ -13,7 +13,7 @@ const Footer = () => {
       color="white"
     >
       <Flex
-        w={{ base: "100%", lg: "60%" }}
+        w={{ base: "100%", lg: "80%", '2xl': "60%" }}
         direction={{ base: "column", md: "row" }}
         justify={{ base: "space-between", lg: "center" }}
         gap={{ base: "24px", lg: "32px" }}
