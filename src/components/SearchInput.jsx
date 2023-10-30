@@ -8,15 +8,30 @@ import {
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SearchInput = () => {
   const [pokemonName, setPokemonName] = useState(() => {return "";});
   const [input, setInput] = useState(() => {return "";});
+  const navigate = useNavigate();
 
   function getName(ev) {
     setInput(ev.target.value);
     setPokemonName(ev.target.value.toLowerCase());
+  }
+
+  function searchOnEnter(ev) {
+    if (ev.key === "Enter") {
+      ev.preventDefault();
+
+      if(input.length > 0)
+        navigate("/pokedex", {state: {PokemonName: pokemonName}});
+    }
+  }
+
+  function searchOnClick(ev) {
+    if(input.length > 0)
+      navigate("/pokedex", {state: {PokemonName: pokemonName}});
   }
 
   return (
@@ -38,24 +53,20 @@ const SearchInput = () => {
           _placeholder={{ opacity: 0.4, color: "yellow.200" }}
           value={input}
           onChange={getName}
+          onKeyDown={searchOnEnter}
         />
 
         <InputRightElement w="60px">
-          <Link
-            to={input.length > 0 && "/pokedex"}
-            state={{ PokemonName: pokemonName }}
-          >
             <Button
               w="60px"
               bg="yellow.200"
               color="black"
-              {...(input.length > 0 && { onClick: () => setInput("") })}
+              onClick={searchOnClick}
               borderRadius="0 8px 8px 0"
               _groupHover={{ bg: "yellow.400" }}
             >
               Search
             </Button>
-          </Link>
         </InputRightElement>
       </InputGroup>
     </Box>
