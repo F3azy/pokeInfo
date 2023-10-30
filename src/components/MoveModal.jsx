@@ -9,7 +9,6 @@ import {
   ModalCloseButton,
   Grid,
   GridItem,
-  Text,
   Spinner,
   Flex,
   Stat,
