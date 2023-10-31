@@ -5,7 +5,7 @@ import { BGPokeball } from "../icons";
 const PokeImg = ({ url }) => {
   return (
     <Flex
-      boxSize={{base: "130", md: "340"}}
+      boxSize={{base: "130px", md: "340px"}}
       justify="center"
       align="center"
       basis="30%"
@@ -21,7 +21,7 @@ const PokeImg = ({ url }) => {
       borderBottomColor="#F2F2F2"
     >
       <Image
-        boxSize={{base: "", md: "260"}}
+        boxSize={{base: "", md: "260px"}}
         m={{base: "8px", md: "24px"}}
         src={url.front_default}
         onMouseOver={(e) => (e.currentTarget.src = url.back_default)}

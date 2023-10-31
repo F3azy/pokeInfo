@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Flex, Button } from "@chakra-ui/react";
+import { Flex, Button, Grid, GridItem } from "@chakra-ui/react";
 import { Pokeball } from "../components";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
 
@@ -34,16 +34,6 @@ const Home = () => {
 
   return (
     <>
-      <Flex
-        wrap="wrap"
-        justify="space-between"
-        gap={{ base: "32px 0", md: "60px", lg: "16px 100px" }}
-      >
-        {pokemons.map((pokemon) => (
-          <Pokeball key={pokemon.name} name={pokemon.name} />
-        ))}
-      </Flex>
-
       <Flex justify="space-between">
         <Button
           onClick={() => setQuery(previous)}
@@ -62,6 +52,18 @@ const Home = () => {
           Next
         </Button>
       </Flex>
+
+      <Grid
+        templateColumns={{base: "repeat(4, auto)", lg:"repeat(5, auto)"}}
+        justifyContent="space-between"
+        rowGap={{base: 7, lg: 5}}
+      >
+        {pokemons.map((pokemon) => (
+          <GridItem key={pokemon.name}>
+            <Pokeball name={pokemon.name} />
+          </GridItem>
+        ))}
+      </Grid>
       </>
   );
 };

@@ -17,7 +17,7 @@ function Pokeball({ name }) {
         color="white"
       >
         <PokeballIcon size={{ base: "60px", md: "122px" }} />
-        <Text fontSize={{ base: "16px", md: "20px" }}>
+        <Text fontSize={{ base: "16px", md: "20px" }} textAlign="center">
           {capitalizeFirstLetter(name)}
         </Text>
       </Flex>

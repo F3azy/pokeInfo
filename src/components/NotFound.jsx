@@ -5,7 +5,7 @@ import { PokeballIcon } from "../icons";
 const NotFound = () => {
   return (
     <Flex
-      width="100%"
+      h="100%"
       id="pokeLoad"
       direction="column"
       justify="center"

@@ -5,7 +5,7 @@ import { PokeballIcon } from "../icons";
 const Loading = () => {
   return (
     <Flex
-      width="100%"
+      h="100%"
       id="pokeLoad"
       justify="center"
       align="center"
