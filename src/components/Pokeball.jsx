@@ -10,7 +10,7 @@ function Pokeball({ name }) {
     <Link to="/pokedex" state={{ PokemonName: name }}>
       <Flex
         className="pokeball"
-        w={{ base: "88px", md: "122px" }}
+        w={{ base: "88px", md: "160px" }}
         direction="column"
         align="center"
         rowGap="4px"
