@@ -24,14 +24,16 @@ const SearchInput = () => {
     if (ev.key === "Enter") {
       ev.preventDefault();
 
-      if(input.length > 0)
-        navigate("/pokedex", {state: {PokemonName: pokemonName}});
+      search()
     }
   }
 
-  function searchOnClick(ev) {
+  function search(ev) {
     if(input.length > 0)
-      navigate("/pokedex", {state: {PokemonName: pokemonName}});
+      navigate({
+        pathname: "/pokedex",
+        search: `?name=${pokemonName}`
+      });
   }
 
   return (
@@ -61,7 +63,7 @@ const SearchInput = () => {
               w="60px"
               bg="yellow.200"
               color="black"
-              onClick={searchOnClick}
+              onClick={search}
               borderRadius="0 8px 8px 0"
               _groupHover={{ bg: "yellow.400" }}
             >

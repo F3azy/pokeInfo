@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Flex, VStack } from "@chakra-ui/react";
-import { useLocation } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import {
   PokeImg,
   PokeBasicInfo,
@@ -10,16 +10,13 @@ import {
 } from "../components";
 
 const Pokedex = () => {
-  let { state } = useLocation();
+  const [searchParams] = useSearchParams();
 
-  const [query, setQuery] = useState(() => {return "https://pokeapi.co/api/v2/pokemon/" + state.PokemonName;});
+  const query = `https://pokeapi.co/api/v2/pokemon/${searchParams.get("name")}`;
+
   const [Pokemon, setPokemon] = useState(() => {return null;});
   const [loading, setLoading] = useState(() => {return true;});
   const [notFound, setNotFound] = useState(() => {return false;});
-
-  useEffect(() => {
-    setQuery("https://pokeapi.co/api/v2/pokemon/" + state.PokemonName);
-  }, [state.PokemonName]);
 
   useEffect(() => {
     setLoading(true);
@@ -44,7 +41,7 @@ const Pokedex = () => {
   if (loading) return <Loading />;
 
   return (
-    <VStack gap={{ base: "12px", lg: "24px" }}>
+    <VStack gap={{ base: "12px", lg: "20px" }}>
       <Flex 
       w="100%"
       direction={{ base: "column", xl: "row" }} 

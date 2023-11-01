@@ -7,7 +7,12 @@ import { capitalizeFirstLetter } from "../utils";
 
 function Pokeball({ name }) {
   return (
-    <Link to="/pokedex" state={{ PokemonName: name }}>
+    <Link 
+    to={{
+      pathname: "/pokedex",
+      search: `?name=${name}`
+    }} 
+    >
       <Flex
         className="pokeball"
         w={{ base: "88px", md: "160px" }}
