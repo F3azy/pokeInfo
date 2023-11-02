@@ -21,7 +21,7 @@ const Footer = () => {
         mx={{ base: "8px", md: "32px", lg: "0" }}
       >
         <Text fontSize="20px">
-          &copy; {new Date().getFullYear()}
+          &copy; {new Date().getFullYear()}&nbsp;
           PokeINFO, Powered by&nbsp;
           <Link
             isExternal

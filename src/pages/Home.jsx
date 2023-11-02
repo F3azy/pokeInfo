@@ -2,11 +2,23 @@ import React, { useState, useEffect } from "react";
 import { Flex, Button, Grid, GridItem } from "@chakra-ui/react";
 import { Pokeball } from "../components";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
+import { useNavigate, useParams } from "react-router-dom";
+
+const POKEMON_LIMIT = 20;
+
+const ACTIONS = {
+  INCREMENT: "increment",
+  DECREMENT: "decrement",
+}
 
 const Home = () => {
-  const [query, setQuery] = useState(() => {
-    return "https://pokeapi.co/api/v2/pokemon";
-  });
+  
+  const { p = 1 } = useParams();
+  const page = (typeof p === "undefined") ? 1 : parseInt(p);
+  const navigate = useNavigate();
+  
+  const query = `https://pokeapi.co/api/v2/pokemon?limit=${POKEMON_LIMIT}&offset=${(page-1)*POKEMON_LIMIT}`;
+  
   const [next, setNext] = useState(() => {
     return "";
   });
@@ -32,11 +44,27 @@ const Home = () => {
       });
   }, [query]);
 
+  function pagination(action) {
+    switch(action) {
+      case ACTIONS.INCREMENT:
+        if(!next) break;
+        navigate(`/${page+1}`);
+        break;
+      case ACTIONS.DECREMENT:
+        if(!previous) break;
+        if(page-1===1) navigate("/");
+        else navigate(`/${page-1}`);
+        break;
+      default:
+        break;
+    }
+  }
+
   return (
     <>
       <Flex justify="space-between">
         <Button
-          onClick={() => setQuery(previous)}
+          onClick={() => pagination(ACTIONS.DECREMENT)}
           colorScheme="yellow"
           isDisabled={!previous}
           leftIcon={<ArrowBackIcon />}
@@ -44,7 +72,7 @@ const Home = () => {
           Previous
         </Button>
         <Button
-          onClick={() => setQuery(next)}
+          onClick={() => pagination(ACTIONS.INCREMENT)}
           colorScheme="yellow"
           isDisabled={!next}
           rightIcon={<ArrowForwardIcon />}
