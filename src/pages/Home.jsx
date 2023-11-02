@@ -9,14 +9,15 @@ const POKEMON_LIMIT = 20;
 const ACTIONS = {
   INCREMENT: "increment",
   DECREMENT: "decrement",
-}
+};
 
 const Home = () => {
-  
   const { p = 1 } = useParams();
-  const page = (typeof p === "undefined") ? 1 : parseInt(p);
-  const query = `https://pokeapi.co/api/v2/pokemon?limit=${POKEMON_LIMIT}&offset=${(page-1)*POKEMON_LIMIT}`;
-  
+  const page = typeof p === "undefined" ? 1 : parseInt(p);
+  const query = `https://pokeapi.co/api/v2/pokemon?limit=${POKEMON_LIMIT}&offset=${
+    (page - 1) * POKEMON_LIMIT
+  }`;
+
   const navigate = useNavigate();
   const [next, setNext] = useState("");
   const [previous, setPrevious] = useState("");
@@ -37,16 +38,20 @@ const Home = () => {
       });
   }, [query]);
 
+  useEffect(() => {
+    if (page <= 0 || !pokemons.length) navigate("/", { replace: true });
+  }, []);
+
   function pagination(action) {
-    switch(action) {
+    switch (action) {
       case ACTIONS.INCREMENT:
-        if(!next) break;
-        navigate(`/${page+1}`);
+        if (!next) break;
+        navigate(`/${page + 1}`);
         break;
       case ACTIONS.DECREMENT:
-        if(!previous) break;
-        if(page-1===1) navigate("/");
-        else navigate(`/${page-1}`);
+        if (!previous) break;
+        if (page - 1 === 1) navigate("/");
+        else navigate(`/${page - 1}`);
         break;
       default:
         break;
@@ -75,9 +80,9 @@ const Home = () => {
       </Flex>
 
       <Grid
-        templateColumns={{base: "repeat(4, auto)", lg:"repeat(5, auto)"}}
+        templateColumns={{ base: "repeat(4, auto)", lg: "repeat(5, auto)" }}
         justifyContent="space-between"
-        rowGap={{base: 7, lg: 5}}
+        rowGap={{ base: 7, lg: 5 }}
       >
         {pokemons.map((pokemon) => (
           <GridItem key={pokemon.name}>
@@ -85,7 +90,7 @@ const Home = () => {
           </GridItem>
         ))}
       </Grid>
-      </>
+    </>
   );
 };
 
