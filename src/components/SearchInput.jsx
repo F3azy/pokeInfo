@@ -11,8 +11,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SearchInput = () => {
-  const [pokemonName, setPokemonName] = useState(() => {return "";});
-  const [input, setInput] = useState(() => {return "";});
+  const [pokemonName, setPokemonName] = useState("");
+  const [input, setInput] = useState("");
   const navigate = useNavigate();
 
   function getName(ev) {
@@ -24,15 +24,15 @@ const SearchInput = () => {
     if (ev.key === "Enter") {
       ev.preventDefault();
 
-      search()
+      search();
     }
   }
 
   function search(ev) {
-    if(input.length > 0)
+    if (input.length > 0)
       navigate({
         pathname: "/pokedex",
-        search: `?name=${pokemonName}`
+        search: `?name=${pokemonName}`,
       });
   }
 
@@ -59,16 +59,16 @@ const SearchInput = () => {
         />
 
         <InputRightElement w="60px">
-            <Button
-              w="60px"
-              bg="yellow.200"
-              color="black"
-              onClick={search}
-              borderRadius="0 8px 8px 0"
-              _groupHover={{ bg: "yellow.400" }}
-            >
-              Search
-            </Button>
+          <Button
+            w="60px"
+            bg="yellow.200"
+            color="black"
+            onClick={search}
+            borderRadius="0 8px 8px 0"
+            _groupHover={{ bg: "yellow.400" }}
+          >
+            Search
+          </Button>
         </InputRightElement>
       </InputGroup>
     </Box>

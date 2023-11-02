@@ -1,38 +1,34 @@
 import { Flex, Grid, GridItem, Heading, useDisclosure } from "@chakra-ui/react";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Move from "./Move";
 import MoveModal from "./MoveModal";
+
+const QUERY = "https://pokeapi.co/api/v2/move/";
 
 const PokeMoreInfo = ({ moves }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const [moveName, setMoveName] = useState(() => {return moves[0].move.name;});
-  const [move, setMove] = useState(() => {return null;});
-  const [query, setQuery] = useState(() => {return "https://pokeapi.co/api/v2/move/" + moveName;});
-  const [loading, setLoading] = useState(() => {return true;});
-
-  useEffect(() => {
-    setQuery("https://pokeapi.co/api/v2/move/" + moveName);
-  }, [moveName]);
-
-  useEffect(() => {
-    fetch(query)
-      .then((response) => response.json())
-      .then((mov) => {
-        let timer = setTimeout(() => {
-          setLoading(false);
-        }, 1000);
-
-        setMove(mov);
-
-        return () => clearTimeout(timer);
-      });
-  }, [query, isOpen]);
+  const [moveName, setMoveName] = useState("");
+  const [move, setMove] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   function showModal(e) {
     setLoading(true);
-    setMoveName(e.target.value.toLowerCase());
+    setMoveName(prev => prev = e.target.value.toLowerCase());
+
+    fetch(QUERY+e.target.value.toLowerCase())
+    .then((response) => response.json())
+    .then((move) => {
+      setLoading(false);
+      setMove(move);
+    });
+
     onOpen();
+  }
+
+  function closeModal() {
+    onClose();
+    setMove(null);
   }
 
   return (
@@ -72,10 +68,10 @@ const PokeMoreInfo = ({ moves }) => {
         },
       }}
       >
-      {moves.map((move) => (
-          <GridItem key={move.move.name}>
+      {moves.map((m) => (
+          <GridItem key={m.move.name}>
             <Move
-            moveName={move.move.name}
+            moveName={m.move.name}
             fun={showModal}
             />
           </GridItem>
@@ -84,7 +80,7 @@ const PokeMoreInfo = ({ moves }) => {
 
       <MoveModal
         isOpen={isOpen}
-        onClose={onClose}
+        onClose={closeModal}
         move={move}
         moveName={moveName}
         loading={loading}

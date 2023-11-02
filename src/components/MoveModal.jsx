@@ -49,46 +49,43 @@ const MoveModal = ({ moveName, move, isOpen, onClose, loading }) => {
               <GridItem>
                 <Stat>
                   <StatLabel color="brand.quaternary">Accuracy:</StatLabel>
-                  <StatNumber>{move.accuracy || "None"}</StatNumber>
+                  <StatNumber>{move?.accuracy || "None"}</StatNumber>
                 </Stat>
               </GridItem>
               <GridItem>
                 <Stat>
                   <StatLabel color="brand.quaternary">Power:</StatLabel>
-                  <StatNumber>{move.power || "None"}</StatNumber>
+                  <StatNumber>{move?.power || "None"}</StatNumber>
                 </Stat>
               </GridItem>
               <GridItem>
                 <Stat>
                   <StatLabel color="brand.quaternary">Type:</StatLabel>
-                  <StatNumber>{move.type.name || "None"}</StatNumber>
+                  <StatNumber>{move?.type?.name || "None"}</StatNumber>
                 </Stat>
               </GridItem>
               <GridItem>
                 <Stat>
                   <StatLabel color="brand.quaternary">Effect chance:</StatLabel>
-                  <StatNumber>{move.effect_chance  || "None"}</StatNumber>
+                  <StatNumber>{move?.effect_chance  || "None"}</StatNumber>
                 </Stat>
               </GridItem>
               <GridItem>
                 <Stat>
                   <StatLabel color="brand.quaternary">Power points:</StatLabel>
-                  <StatNumber>{move.pp || "None"}</StatNumber>
+                  <StatNumber>{move?.pp || "None"}</StatNumber>
                 </Stat>
               </GridItem>
               <GridItem>
                 <Stat>
                   <StatLabel color="brand.quaternary">Target:</StatLabel>
-                  <StatNumber>{move.target.name || "None"}</StatNumber>
+                  <StatNumber>{move?.target?.name || "None"}</StatNumber>
                 </Stat>
               </GridItem>
               <GridItem rowSpan={1} colSpan={{ base: 2, lg: 3 }}>
                 <Stat>
                   <StatLabel color="brand.quaternary">Effect:</StatLabel>
-                  <StatNumber>{move.effect_entries[0].short_effect.replace(
-                        "$effect_chance",
-                        move.effect_chance
-                      )  || "None"}</StatNumber>
+                  <StatNumber>{move?.effect_entries ? move?.effect_entries[0].short_effect.replace("$effect_chance",move?.effect_chance)  : "None"}</StatNumber>
                 </Stat>
               </GridItem>
             </Grid>

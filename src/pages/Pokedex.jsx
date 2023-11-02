@@ -14,9 +14,9 @@ const Pokedex = () => {
 
   const query = `https://pokeapi.co/api/v2/pokemon/${searchParams.get("name")}`;
 
-  const [Pokemon, setPokemon] = useState(() => {return null;});
-  const [loading, setLoading] = useState(() => {return true;});
-  const [notFound, setNotFound] = useState(() => {return false;});
+  const [Pokemon, setPokemon] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -26,8 +26,7 @@ const Pokedex = () => {
       .then((pokemon) => {
         let timer = setTimeout(() => {
           setLoading(false);
-        }, 1000);
-        // setLoading(false);
+        }, 800);
         setPokemon(pokemon);
         return () => clearTimeout(timer);
       })

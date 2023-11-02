@@ -15,19 +15,12 @@ const Home = () => {
   
   const { p = 1 } = useParams();
   const page = (typeof p === "undefined") ? 1 : parseInt(p);
-  const navigate = useNavigate();
-  
   const query = `https://pokeapi.co/api/v2/pokemon?limit=${POKEMON_LIMIT}&offset=${(page-1)*POKEMON_LIMIT}`;
   
-  const [next, setNext] = useState(() => {
-    return "";
-  });
-  const [previous, setPrevious] = useState(() => {
-    return "";
-  });
-  const [pokemons, setPokemons] = useState(() => {
-    return [];
-  });
+  const navigate = useNavigate();
+  const [next, setNext] = useState("");
+  const [previous, setPrevious] = useState("");
+  const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
     const controller = new AbortController();
