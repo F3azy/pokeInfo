@@ -34,13 +34,12 @@ const Home = () => {
         setNext(allPokemon.next);
         setPrevious(allPokemon.previous);
 
+        if (page <= 0 || !allPokemon.results.length) navigate("/", { replace: true });
+
         return () => controller.abort();
       });
+      // eslint-disable-next-line
   }, [query]);
-
-  useEffect(() => {
-    if (page <= 0 || !pokemons.length) navigate("/", { replace: true });
-  }, []);
 
   function pagination(action) {
     switch (action) {
