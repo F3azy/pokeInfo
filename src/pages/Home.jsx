@@ -7,21 +7,19 @@ import { useNavigate, useParams } from "react-router-dom";
 const POKEMON_LIMIT = 20;
 
 const ACTIONS = {
-  INCREMENT: "increment",
-  DECREMENT: "decrement",
+  NEXT: "NEXT",
+  PREVIOUS: "PREVIOUS",
 };
 
 const Home = () => {
   const { p = 1 } = useParams();
   const page = typeof p === "undefined" ? 1 : parseInt(p);
-  const query = `https://pokeapi.co/api/v2/pokemon?limit=${POKEMON_LIMIT}&offset=${
-    (page - 1) * POKEMON_LIMIT
-  }`;
+  const query = `https://pokeapi.co/api/v2/pokemon?limit=${POKEMON_LIMIT}&offset=${(page - 1) * POKEMON_LIMIT}`;
+
+  const [totalPages, setTotalPages] = useState(0);
+  const [pokemons, setPokemons] = useState([]);
 
   const navigate = useNavigate();
-  const [next, setNext] = useState("");
-  const [previous, setPrevious] = useState("");
-  const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -31,24 +29,26 @@ const Home = () => {
       .then((response) => response.json())
       .then((allPokemon) => {
         setPokemons(allPokemon.results);
-        setNext(allPokemon.next);
-        setPrevious(allPokemon.previous);
-
-        if (page <= 0 || !allPokemon.results.length) navigate("/", { replace: true });
+        setTotalPages(Math.ceil(allPokemon.count / POKEMON_LIMIT));
 
         return () => controller.abort();
       });
       // eslint-disable-next-line
   }, [query]);
 
+  useEffect(() => {
+    if(totalPages !== 0 && (page<=1 || page > totalPages)) navigate("/", { replace: true });
+    // eslint-disable-next-line
+  }, [totalPages]);
+
   function pagination(action) {
     switch (action) {
-      case ACTIONS.INCREMENT:
-        if (!next) break;
+      case ACTIONS.NEXT:
+        if (page >= totalPages) break;
         navigate(`/${page + 1}`);
         break;
-      case ACTIONS.DECREMENT:
-        if (!previous) break;
+      case ACTIONS.PREVIOUS:
+        if (page <= 1) break;
         if (page - 1 === 1) navigate("/");
         else navigate(`/${page - 1}`);
         break;
@@ -61,17 +61,17 @@ const Home = () => {
     <>
       <Flex justify="space-between">
         <Button
-          onClick={() => pagination(ACTIONS.DECREMENT)}
+          onClick={() => pagination(ACTIONS.PREVIOUS)}
           colorScheme="yellow"
-          isDisabled={!previous}
+          isDisabled={page<=1}
           leftIcon={<ArrowBackIcon />}
         >
           Previous
         </Button>
         <Button
-          onClick={() => pagination(ACTIONS.INCREMENT)}
+          onClick={() => pagination(ACTIONS.NEXT)}
           colorScheme="yellow"
-          isDisabled={!next}
+          isDisabled={page>=totalPages}
           rightIcon={<ArrowForwardIcon />}
         >
           Next
