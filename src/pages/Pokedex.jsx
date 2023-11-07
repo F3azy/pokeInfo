@@ -24,13 +24,11 @@ const Pokedex = () => {
     fetch(query)
       .then((response) => response.json())
       .then((pokemon) => {
-        let timer = setTimeout(() => {
+          setPokemon(pokemon);
           setLoading(false);
-        }, 800);
-        setPokemon(pokemon);
-        return () => clearTimeout(timer);
       })
       .catch((error) => {
+        setLoading(false);
         setNotFound(true);
         console.log("Pokemon not Found", error);
       });
