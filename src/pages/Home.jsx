@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Flex, Button, Grid, GridItem } from "@chakra-ui/react";
-import { Pokeball } from "../components";
-import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
+import { PaginationButtons, Pokeball } from "../components";
 import { useNavigate, useParams } from "react-router-dom";
 
 const POKEMON_LIMIT = 20;
@@ -9,6 +8,7 @@ const POKEMON_LIMIT = 20;
 const ACTIONS = {
   NEXT: "NEXT",
   PREVIOUS: "PREVIOUS",
+  SET_PAGE: "SET",
 };
 
 const Home = () => {
@@ -41,7 +41,7 @@ const Home = () => {
     // eslint-disable-next-line
   }, [totalPages]);
 
-  function pagination(action) {
+  function pagination(ev, action) {
     switch (action) {
       case ACTIONS.NEXT:
         if (page >= totalPages) break;
@@ -52,6 +52,11 @@ const Home = () => {
         if (page - 1 === 1) navigate("/");
         else navigate(`/${page - 1}`);
         break;
+      case ACTIONS.SET_PAGE:
+        if (ev.target.value > totalPages || ev.target.value < 1 || isNaN(ev.target.value)) break;
+        if (ev.target.value == 1) navigate("/");
+        else navigate(`/${ev.target.value}`);
+        break;
       default:
         break;
     }
@@ -59,24 +64,15 @@ const Home = () => {
 
   return (
     <>
-      <Flex justify="space-between">
-        <Button
-          onClick={() => pagination(ACTIONS.PREVIOUS)}
-          colorScheme="yellow"
-          isDisabled={page<=1}
-          leftIcon={<ArrowBackIcon />}
-        >
-          Previous
-        </Button>
-        <Button
-          onClick={() => pagination(ACTIONS.NEXT)}
-          colorScheme="yellow"
-          isDisabled={page>=totalPages}
-          rightIcon={<ArrowForwardIcon />}
-        >
-          Next
-        </Button>
-      </Flex>
+      <PaginationButtons
+      currentPage={page}
+      totalPages={totalPages}
+      nextOnClick={(ev) => pagination(ev, ACTIONS.NEXT)}
+      nextIsDisabled={page>=totalPages}
+      prevOnClick={(ev) => pagination(ev, ACTIONS.PREVIOUS)}
+      prevIsDisabled={page<=1}
+      setPage={(ev) => pagination(ev, ACTIONS.SET_PAGE)}
+      />
 
       <Grid
         templateColumns={{ base: "repeat(4, auto)", lg: "repeat(5, auto)" }}
