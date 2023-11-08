@@ -15,8 +15,8 @@ const PaginationButtons = ({totalPages, currentPage, nextOnClick, prevOnClick, p
     function returnRange() {
         if(totalPages <= 6) return range(1, totalPages); 
 
-        let showLeftDots = currentPage > 3;
-        let showRightDots =  currentPage < totalPages - 2;
+        let showLeftDots = currentPage > 4;
+        let showRightDots =  currentPage < totalPages - 3;
 
         if(!showLeftDots && showRightDots) {
             let leftRange = range(1, 4);
@@ -27,7 +27,7 @@ const PaginationButtons = ({totalPages, currentPage, nextOnClick, prevOnClick, p
             return [1, "...", ...rightRange];
         }
         else {
-            let middleRange = range(currentPage - 1, currentPage + 1);
+            let middleRange = range(currentPage - 2, currentPage + 2);
             return [1, "...", ...middleRange, "...", totalPages];
         }
     }
