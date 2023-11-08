@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Flex, Button, Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import { PaginationButtons, Pokeball } from "../components";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -54,7 +54,7 @@ const Home = () => {
         break;
       case ACTIONS.SET_PAGE:
         if (ev.target.value > totalPages || ev.target.value < 1 || isNaN(ev.target.value)) break;
-        if (ev.target.value == 1) navigate("/");
+        if (ev.target.value === '1') navigate("/");
         else navigate(`/${ev.target.value}`);
         break;
       default:
