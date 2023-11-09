@@ -4,8 +4,6 @@ import {
   Flex,
   Input,
   InputGroup,
-  InputLeftAddon,
-  InputRightAddon,
   Text,
 } from "@chakra-ui/react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
