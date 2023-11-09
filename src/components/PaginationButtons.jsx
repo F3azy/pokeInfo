@@ -42,7 +42,7 @@ const PaginationButtons = ({totalPages, currentPage, nextOnClick, prevOnClick, p
     function setOnEnter(ev) {
         if (ev.key === "Enter") {
             ev.preventDefault();
-    
+            ev.target.blur();
             setPage(ev);
         }
       }

@@ -23,7 +23,7 @@ const SearchInput = () => {
   function searchOnEnter(ev) {
     if (ev.key === "Enter") {
       ev.preventDefault();
-
+      ev.target.blur();
       search();
     }
   }
