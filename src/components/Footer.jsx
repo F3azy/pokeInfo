@@ -34,7 +34,16 @@ const Footer = () => {
         </Text>
 
         <Stack direction="row" align="center" spacing="16px">
-          <Text fontSize="20px">Designed by Francesco Carvelli</Text>
+          <Text fontSize="20px">Designed by&nbsp;
+          <Link
+            isExternal
+            href="https://fcarvelli.com"
+            _hover={{ color: "brand.quaternary" }}
+            textDecoration="underline"
+          >
+            Francesco Carvelli
+          </Link>
+          </Text>
           <Link
             isExternal
             href="https://github.com/F3azy"
