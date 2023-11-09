@@ -121,10 +121,12 @@ const PaginationButtons = ({
             _placeholder={{
               fontWeight: "600",
               color: "yellow",
+              opacity: "0.6",
             }}
             value={inputValue}
             maxLength={totalPages.toString().length}
             onKeyDown={setOnEnter}
+            onClick={() => setInputValue("")}
             enterKeyHint="Go"
           />
           <Text color="yellow" p="0 4px">
