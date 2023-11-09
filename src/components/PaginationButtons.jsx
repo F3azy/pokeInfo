@@ -107,10 +107,11 @@ const PaginationButtons = ({totalPages, currentPage, nextOnClick, prevOnClick, p
                 value={inputValue}
                 maxLength={totalPages.toString().length}
                 onKeyDown={setOnEnter}
+                enterKeyHint="Go"
                 />
                 <InputRightAddon 
-                borderColor="transparent"
                 bg="transparent" 
+                borderColor="transparent"
                 color="yellow"
                 children={`of ${totalPages}`} 
                 />

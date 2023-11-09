@@ -28,7 +28,7 @@ const SearchInput = () => {
     }
   }
 
-  function search(ev) {
+  function search() {
     if (input.length > 0)
       navigate({
         pathname: "/pokedex",
@@ -56,6 +56,7 @@ const SearchInput = () => {
           value={input}
           onChange={getName}
           onKeyDown={searchOnEnter}
+          enterKeyHint="Go"
         />
 
         <InputRightElement w="60px">
