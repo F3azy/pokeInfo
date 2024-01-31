@@ -5,12 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const POKEMON_LIMIT = 20;
 
-const ACTIONS = {
-  NEXT: "NEXT",
-  PREVIOUS: "PREVIOUS",
-  SET_PAGE: "SET",
-};
-
 const Home = () => {
   const { p = 1 } = useParams();
   const page = typeof p === "undefined" ? 1 : parseInt(p);
@@ -39,25 +33,22 @@ const Home = () => {
     if(totalPages !== 0 && (page<=1 || page > totalPages)) navigate("/", { replace: true });
   }, [totalPages, page, navigate]);
 
-  function pagination(ev, action) {
-    switch (action) {
-      case ACTIONS.NEXT:
-        if (page >= totalPages) break;
-        navigate(`/${page + 1}`);
-        break;
-      case ACTIONS.PREVIOUS:
-        if (page <= 1) break;
-        if (page - 1 === 1) navigate("/");
-        else navigate(`/${page - 1}`);
-        break;
-      case ACTIONS.SET_PAGE:
-        if (ev.target.value > totalPages || ev.target.value < 1 || isNaN(ev.target.value)) break;
-        if (ev.target.value === '1') navigate("/");
-        else navigate(`/${ev.target.value}`);
-        break;
-      default:
-        break;
-    }
+
+  function next() {
+    if (page >= totalPages) return;
+    navigate(`/${page + 1}`);
+  }
+
+  function prev() {
+    if (page <= 1) return;
+    if (page - 1 === 1) navigate("/");
+    else navigate(`/${page - 1}`);
+  }
+
+  function setPage(ev) {
+    if (ev.target.value > totalPages || ev.target.value < 1 || isNaN(ev.target.value)) return;
+    if (ev.target.value === '1') navigate("/");
+    else navigate(`/${ev.target.value}`);
   }
 
   return (
@@ -65,11 +56,11 @@ const Home = () => {
       <PaginationButtons
       currentPage={page}
       totalPages={totalPages}
-      nextOnClick={(ev) => pagination(ev, ACTIONS.NEXT)}
+      nextOnClick={() => next()}
       nextIsDisabled={page>=totalPages}
-      prevOnClick={(ev) => pagination(ev, ACTIONS.PREVIOUS)}
+      prevOnClick={() => prev()}
       prevIsDisabled={page<=1}
-      setPage={(ev) => pagination(ev, ACTIONS.SET_PAGE)}
+      setPage={(ev) => setPage(ev)}
       />
 
       <Grid
