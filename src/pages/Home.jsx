@@ -33,13 +33,11 @@ const Home = () => {
 
         return () => controller.abort();
       });
-      // eslint-disable-next-line
   }, [query]);
 
   useEffect(() => {
     if(totalPages !== 0 && (page<=1 || page > totalPages)) navigate("/", { replace: true });
-    // eslint-disable-next-line
-  }, [totalPages]);
+  }, [totalPages, page, navigate]);
 
   function pagination(ev, action) {
     switch (action) {
