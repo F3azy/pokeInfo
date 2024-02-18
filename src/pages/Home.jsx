@@ -4,16 +4,14 @@ import useFetchPokemons from "../hooks/useFetchPokemons";
 import useFetchTotalPages from "../hooks/useFetchTotalPages";
 
 const Home = () => {
-  const { p = 1 } = useParams();
-
-  const { pokemons, loading: loadingPokemons, error } = useFetchPokemons(p);
+  const { pokemons, loading: loadingPokemons, error, page } = useFetchPokemons();
 
   const { totalPages } = useFetchTotalPages();
 
   return (
     <>
       {totalPages && pokemons && (
-        <PaginationButtons totalPages={totalPages} currentPage={parseInt(p)} />
+        <PaginationButtons totalPages={totalPages} currentPage={page} />
       )}
       {error !== "" && <Error message={error} />}
       {loadingPokemons && <Loading />}

@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { POKEMON_LIMIT } from "../constans/PokemonLimit";
+import { useParams } from "react-router-dom";
 
-export default function useFetchPokemons(page) {
+export default function useFetchPokemons() {
+  const { page = 1 } = useParams();
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [pokemons, setPokemons] = useState(null);
+  
 
   useEffect(() => {
     setLoading(true);
@@ -40,5 +44,5 @@ export default function useFetchPokemons(page) {
     return () => controller.abort();
   }, [page]);
 
-  return { pokemons, loading, error };
+  return { pokemons, loading, error, page: parseInt(page) };
 }
