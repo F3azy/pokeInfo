@@ -1,6 +1,6 @@
 import { Button } from "@chakra-ui/react";
 import React from "react";
-import { capitalizeFirstLetter } from "../utils";
+import { capitalizeFirstLetter } from "../../../utils";
 
 const Move = ({ moveName, fun }) => {
   return (

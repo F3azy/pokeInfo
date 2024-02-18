@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import {theme} from "./styles/theme";
 import "./styles/globals.css";
-import { Layout } from "./components";
+import { Layout } from "./pages";
 import { Home, Pokedex } from "./pages";
 
 function App() {
