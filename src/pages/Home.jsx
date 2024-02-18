@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Grid, GridItem } from "@chakra-ui/react";
 import { PaginationButtons, Pokeball } from "../components";
 import { useNavigate, useParams } from "react-router-dom";
