@@ -14,7 +14,7 @@ const Error = ({ message }) => {
       fontSize={{ base: "70px", xl: "140px" }}
       fontWeight="bold"
     >
-      <Text>{message}</Text>
+      <Text textAlign="center">{message}</Text>
     </Flex>
   );
 };
