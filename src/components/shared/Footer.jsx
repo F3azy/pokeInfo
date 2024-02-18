@@ -1,6 +1,7 @@
-import React from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { Flex, Text, Link, Stack, Icon } from "@chakra-ui/react";
+import { Flex, Text, Stack } from "@chakra-ui/react";
+import { socialIcons } from "../../constans/Footer";
+import SocialIcon from "./SocialIcon";
+import FooterLink from "./FooterLink";
 
 const Footer = () => {
   return (
@@ -13,53 +14,33 @@ const Footer = () => {
       color="white"
     >
       <Flex
-        w={{ base: "100%", lg: "80%", '2xl': "60%" }}
+        w={{ base: "100%", lg: "80%", "2xl": "60%" }}
         direction={{ base: "column", md: "row" }}
         justify={{ base: "space-between", lg: "center" }}
         gap={{ base: "24px", lg: "32px" }}
         align="center"
         mx={{ base: "8px", md: "32px", lg: "0" }}
       >
-        <Text fontSize="20px">
-          &copy; {new Date().getFullYear()}&nbsp;
-          PokeINFO, Powered by&nbsp;
-          <Link
-            isExternal
-            href="https://pokeapi.co/"
-            _hover={{ color: "brand.quaternary" }}
-            textDecoration="underline"
-          >
-            PokeAPI
-          </Link>
-        </Text>
+        <Text fontSize="20px">&copy; {new Date().getFullYear()}&nbsp;</Text>
+        <FooterLink
+          text="PokeINFO, Powered by"
+          linkText="PokeAPI"
+          url="https://pokeapi.co/"
+        />
 
         <Stack direction="row" align="center" spacing="16px">
-          <Text fontSize="20px">Designed by&nbsp;
-          <Link
-            isExternal
-            href="https://fcarvelli.com"
-            _hover={{ color: "brand.quaternary" }}
-            textDecoration="underline"
-          >
-            Francesco Carvelli
-          </Link>
-          </Text>
-          <Link
-            isExternal
-            href="https://github.com/F3azy"
-            _hover={{ color: "brand.quaternary" }}
-            h="24px"
-          >
-            <Icon boxSize="24px" as={FaGithub} />
-          </Link>
-          <Link
-            isExternal
-            href="https://www.linkedin.com/in/fcarvelli/"
-            _hover={{ color: "brand.quaternary" }}
-            h="24px"
-          >
-            <Icon boxSize="24px" as={FaLinkedin} />
-          </Link>
+          <FooterLink
+            text="Designed by"
+            linkText="Francesco Carvelli"
+            url="https://fcarvelli.com"
+          />
+          {socialIcons.map((socialIcon) => (
+            <SocialIcon
+              key={socialIcon.name}
+              url={socialIcon.url}
+              icon={socialIcon.icon}
+            />
+          ))}
         </Stack>
       </Flex>
     </Flex>
