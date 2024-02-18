@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useDelayRender(time) {
+export default function useDelayRender(time) {
   const [showComponent, setShowComponent] = useState(false);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { PokeballIcon } from "../../icons";
-import { useDelayRender } from "../../hooks/useDelayRender";
+import useDelayRender from "../../hooks/useDelayRender";
 
 const Loading = () => {
   const show = useDelayRender(50);
