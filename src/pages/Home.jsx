@@ -1,12 +1,8 @@
-import { useParams } from "react-router-dom";
 import { Error, Loading, PaginationButtons, PokeballList } from "../components";
 import useFetchPokemons from "../hooks/useFetchPokemons";
-import useFetchTotalPages from "../hooks/useFetchTotalPages";
 
 const Home = () => {
-  const { pokemons, loading: loadingPokemons, error, page } = useFetchPokemons();
-
-  const { totalPages } = useFetchTotalPages();
+  const { pokemons, loading: loadingPokemons, error, page, totalPages } = useFetchPokemons();
 
   return (
     <>
