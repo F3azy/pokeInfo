@@ -1,7 +1,10 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { PokeballIcon } from "../../icons";
+import { useDelayRender } from "../../hooks/useDelayRender";
 
 const Loading = () => {
+  const show = useDelayRender(50);
+
   return (
     <Flex
       h="100%"
@@ -11,12 +14,16 @@ const Loading = () => {
       letterSpacing="2px"
       columnGap="2px"
       color="brand.quaternary"
-      fontSize={{base: "50px", lg: "200px"}}
+      fontSize={{ base: "50px", lg: "200px" }}
       fontWeight="bold"
     >
-      <Text>L</Text>
-      <PokeballIcon />
-      <Text>ADING...</Text>
+      {show && (
+        <>
+          <Text>L</Text>
+          <PokeballIcon />
+          <Text>ADING...</Text>
+        </>
+      )}
     </Flex>
   );
 };
