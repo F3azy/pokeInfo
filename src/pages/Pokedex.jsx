@@ -6,7 +6,7 @@ import {
   PokeBasicInfo,
   PokeMoreInfo,
   Loading,
-  NotFound,
+  Error,
 } from "../components";
 
 const Pokedex = () => {
@@ -34,7 +34,7 @@ const Pokedex = () => {
       });
   }, [query]);
 
-  if (notFound) return <NotFound />;
+  if (notFound) return <Error />;
   if (loading) return <Loading />;
 
   return (

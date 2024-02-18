@@ -1,7 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
-import { PokeballIcon } from "../../icons";
 
-const NotFound = () => {
+const Error = ({ message }) => {
   return (
     <Flex
       h="100%"
@@ -12,16 +11,12 @@ const NotFound = () => {
       letterSpacing="2px"
       columnGap="2px"
       color="brand.quaternary"
-      fontSize={{base: "70px", xl:"140px"}}
+      fontSize={{ base: "70px", xl: "140px" }}
       fontWeight="bold"
     >
-      <Text>
-        P<PokeballIcon />
-        kemon
-      </Text>
-      <Text>Not Found</Text>
+      <Text>{message}</Text>
     </Flex>
   );
 };
 
-export default NotFound;
+export default Error;

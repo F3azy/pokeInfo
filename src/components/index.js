@@ -1,9 +1,9 @@
 export { default as Loading } from "./shared/Loading";
-export { default as Pokeball } from "./pages/Home/Pokeball";
+export { default as PokeballList } from "./pages/Home/PokeballList";
 export { default as PaginationButtons } from "./pages/Home/PaginationButtons";
 export { default as PokeImg } from "./pages/Pokedex/PokeImg";
 export { default as PokeBasicInfo } from "./pages/Pokedex/PokeBasicInfo";
 export { default as PokeMoreInfo } from "./pages/Pokedex/PokeMoreInfo";
-export { default as NotFound } from "./shared/NotFound";
+export { default as Error } from "./shared/Error";
 export { default as Navbar } from "./shared/Navbar";
 export { default as Footer } from "./shared/Footer";
