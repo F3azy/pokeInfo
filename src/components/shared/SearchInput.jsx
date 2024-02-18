@@ -7,16 +7,15 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SearchInput = () => {
   const [pokemonName, setPokemonName] = useState("");
-  const [input, setInput] = useState("");
+
   const navigate = useNavigate();
 
   function getName(ev) {
-    setInput(ev.target.value);
     setPokemonName(ev.target.value.toLowerCase());
   }
 
@@ -29,7 +28,7 @@ const SearchInput = () => {
   }
 
   function search() {
-    if (input.length > 0)
+    if (pokemonName.length > 0)
       navigate({
         pathname: "/pokedex",
         search: `?name=${pokemonName}`,
@@ -49,11 +48,11 @@ const SearchInput = () => {
           borderColor="yellow.200"
           focusBorderColor="yellow.200"
           _groupHover={{ borderColor: "yellow.400" }}
+          _groupActive={{ borderColor: "yellow.500" }}
           type="text"
           color="yellow.200"
           placeholder="Pokemon name..."
           _placeholder={{ opacity: 0.4, color: "yellow.200" }}
-          value={input}
           onChange={getName}
           onKeyDown={searchOnEnter}
           enterKeyHint="Go"
@@ -67,6 +66,7 @@ const SearchInput = () => {
             onClick={search}
             borderRadius="0 8px 8px 0"
             _groupHover={{ bg: "yellow.400" }}
+            _groupActive={{ bg: "yellow.500" }}
           >
             Search
           </Button>
