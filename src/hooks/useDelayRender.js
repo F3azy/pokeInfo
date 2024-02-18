@@ -9,7 +9,7 @@ export default function useDelayRender(time) {
     }, time);
 
     return () => clearTimeout(timeout);
-  }, []);
+  }, [time]);
 
   return showComponent;
 }
