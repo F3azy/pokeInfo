@@ -1,4 +1,3 @@
-import React from "react";
 import { Flex, Heading, Grid, GridItem, Stat, StatLabel, StatNumber } from "@chakra-ui/react";
 import { capitalizeFirstLetter } from "../../../utils";
 

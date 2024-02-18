@@ -1,5 +1,5 @@
 import { Flex, Grid, GridItem, Heading, useDisclosure } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import Move from "./Move";
 import MoveModal from "./MoveModal";
 

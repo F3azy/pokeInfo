@@ -1,5 +1,4 @@
 import { Flex, Image } from "@chakra-ui/react";
-import React from "react";
 import SearchInput from "./SearchInput";
 import { Link } from "react-router-dom";
 

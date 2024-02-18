@@ -7,7 +7,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const PaginationButtons = ({
   totalPages,
