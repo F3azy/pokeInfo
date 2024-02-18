@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-export default function useFetchPokemonDetails(name) {
+export default function useFetchPokemonDetails() {
   const [searchParams] = useSearchParams();
 
   const [pokemon, setPokemon] = useState(null);
