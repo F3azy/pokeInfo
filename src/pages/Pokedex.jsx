@@ -1,8 +1,8 @@
 import { Flex, VStack } from "@chakra-ui/react";
 import {
-  PokeImg,
-  PokeBasicInfo,
-  PokeMoreInfo,
+  PokemonImage,
+  PokemonDetails,
+  PokemonMoves,
   Loading,
   Error,
 } from "../components";
@@ -24,8 +24,8 @@ const Pokedex = () => {
             align={{ xl: "center" }}
             gap={{ base: "12px", lg: "24px" }}
           >
-            <PokeImg url={pokemon.sprites} />
-            <PokeBasicInfo
+            <PokemonImage url={pokemon.sprites} />
+            <PokemonDetails
               name={pokemon.name}
               id={pokemon.id}
               height={pokemon.height}
@@ -34,7 +34,7 @@ const Pokedex = () => {
               stats={pokemon.stats}
             />
           </Flex>
-          <PokeMoreInfo moves={pokemon.moves} />
+          <PokemonMoves moves={pokemon.moves} />
         </>
       )}
     </VStack>

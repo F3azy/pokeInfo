@@ -5,7 +5,7 @@ import MoveModal from "./MoveModal";
 
 const QUERY = "https://pokeapi.co/api/v2/move/";
 
-const PokeMoreInfo = ({ moves }) => {
+const PokemonMoves = ({ moves }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [moveName, setMoveName] = useState("");
@@ -89,4 +89,4 @@ const PokeMoreInfo = ({ moves }) => {
   );
 };
 
-export default PokeMoreInfo;
+export default PokemonMoves;

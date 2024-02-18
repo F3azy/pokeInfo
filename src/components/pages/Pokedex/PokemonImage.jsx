@@ -1,7 +1,7 @@
 import { Flex, Image } from "@chakra-ui/react";
 import { BGPokeball } from "../../../icons";
 
-const PokeImg = ({ url }) => {
+const PokemonImage = ({ url }) => {
   return (
     <Flex
       boxSize={{base: "130px", md: "340px"}}
@@ -34,4 +34,4 @@ const PokeImg = ({ url }) => {
   );
 };
 
-export default PokeImg;
+export default PokemonImage;

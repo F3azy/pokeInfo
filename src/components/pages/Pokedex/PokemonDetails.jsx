@@ -1,7 +1,7 @@
 import { Flex, Heading, Grid, GridItem, Stat, StatLabel, StatNumber } from "@chakra-ui/react";
 import { capitalizeFirstLetter } from "../../../utils";
 
-const PokeBasicInfo = ({ name, id, height, weight, types, stats }) => {
+const PokemonDetails = ({ name, id, height, weight, types, stats }) => {
   return (
     <Flex
       border={{ base:"solid 8px", lg:"solid 12px"}}
@@ -72,4 +72,4 @@ const PokeBasicInfo = ({ name, id, height, weight, types, stats }) => {
   );
 };
 
-export default PokeBasicInfo;
+export default PokemonDetails;
