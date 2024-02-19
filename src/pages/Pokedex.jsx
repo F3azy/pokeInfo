@@ -22,17 +22,10 @@ const Pokedex = () => {
             direction={{ base: "column", xl: "row" }}
             justify="center"
             align={{ xl: "center" }}
-            gap={{ base: "12px", lg: "24px" }}
+            gap={{ base: "12px", lg: "36px" }}
           >
             <PokemonImage url={pokemon.sprites} />
-            <PokemonDetails
-              name={pokemon.name}
-              id={pokemon.id}
-              height={pokemon.height}
-              weight={pokemon.weight}
-              types={pokemon.types}
-              stats={pokemon.stats}
-            />
+            <PokemonDetails pokemon={pokemon} />
           </Flex>
           <PokemonMoves moves={pokemon.moves} />
         </>
