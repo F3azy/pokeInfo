@@ -1,4 +1,4 @@
-import { Grid, GridItem, Stat, StatLabel, StatNumber } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import PokemonStat from "./PokemonStat";
 
 const PokemonStats = ({ pokemonStats }) => {
