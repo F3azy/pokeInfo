@@ -19,7 +19,7 @@ function Pokeball({ name }) {
       rowGap="4px"
       color="white"
     >
-      <PokeballIcon size={{ base: "60px", md: "122px" }} />
+      <PokeballIcon boxSize={{ base: "60px", md: "122px" }} />
       <Text fontSize={{ base: "16px", md: "20px" }} textAlign="center">
         {capitalizeFirstLetter(name)}
       </Text>
