@@ -1,7 +1,7 @@
 import { Button, ButtonGroup } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
-const PagesRange = ({ totalPages, currentPage }) => {
+const Pagination = ({ totalPages, currentPage }) => {
   const navigate = useNavigate();
 
   function range(start, end) {
@@ -65,4 +65,4 @@ const PagesRange = ({ totalPages, currentPage }) => {
   );
 };
 
-export default PagesRange;
+export default Pagination;

@@ -2,7 +2,7 @@ import { Button, Input, InputGroup, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const MobilePagesRange = ({ totalPages, currentPage }) => {
+const MobilePagination = ({ totalPages, currentPage }) => {
   const [inputValue, setInputValue] = useState("");
 
   const navigate = useNavigate();
@@ -74,4 +74,4 @@ const MobilePagesRange = ({ totalPages, currentPage }) => {
   );
 };
 
-export default MobilePagesRange;
+export default MobilePagination;

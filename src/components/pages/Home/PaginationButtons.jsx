@@ -1,7 +1,7 @@
 import { Button, Flex } from "@chakra-ui/react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
-import PagesRange from "./PagesRange";
-import MobilePagesRange from "./MobilePagesRange";
+import Pagination from "./Pagination";
+import MobilePagination from "./MobilePagination";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -35,8 +35,8 @@ const PaginationButtons = ({ totalPages, currentPage }) => {
         >
           Previous
         </Button>
-        <PagesRange totalPages={totalPages} currentPage={currentPage} />
-        <MobilePagesRange totalPages={totalPages} currentPage={currentPage} />
+        <Pagination totalPages={totalPages} currentPage={currentPage} />
+        <MobilePagination totalPages={totalPages} currentPage={currentPage} />
         <Button
           size={{ base: "sm", md: "lg" }}
           rightIcon={<ArrowForwardIcon />}
