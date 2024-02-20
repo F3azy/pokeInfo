@@ -11,7 +11,7 @@ const Home = () => {
       )}
       {error !== "" && <Error message={error} />}
       {loadingPokemons && <Loading />}
-      {pokemons && <PokeballList pokemons={pokemons} />}
+      {!!pokemons && <PokeballList pokemons={pokemons} />}
     </>
   );
 };
