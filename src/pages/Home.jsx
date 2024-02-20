@@ -6,7 +6,7 @@ const Home = () => {
 
   return (
     <>
-      {totalPages && pokemons && (
+      {totalPages && !!pokemons && (
         <PaginationButtons totalPages={totalPages} currentPage={page} />
       )}
       {error !== "" && <Error message={error} />}
