@@ -8,13 +8,11 @@ const QUERY = "https://pokeapi.co/api/v2/move/";
 const PokemonMoves = ({ moves }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const [moveName, setMoveName] = useState("");
   const [move, setMove] = useState(null);
   const [loading, setLoading] = useState(true);
 
   function showModal(e) {
     setLoading(true);
-    setMoveName(prev => prev = e.target.value.toLowerCase());
 
     fetch(QUERY+e.target.value.toLowerCase())
     .then((response) => response.json())
@@ -68,22 +66,22 @@ const PokemonMoves = ({ moves }) => {
         },
       }}
       >
-      {moves.map((m) => (
+      {moves?.map((m) => (
           <GridItem key={m.move.name}>
             <Move
-            moveName={m.move.name}
-            fun={showModal}
+            name={m.move.name}
+            value={m.move.name}
+            onClick={showModal}
             />
           </GridItem>
         ))}
       </Grid>
 
       <MoveModal
+        move={move}
+        loading={loading}
         isOpen={isOpen}
         onClose={closeModal}
-        move={move}
-        moveName={moveName}
-        loading={loading}
       />
     </Flex>
   );

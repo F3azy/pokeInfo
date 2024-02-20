@@ -1,6 +1,6 @@
 import { Stat, StatLabel, StatNumber } from "@chakra-ui/react";
 
-const PokemonStat = ({ label, value }) => {
+const BasicStat = ({ label, value }) => {
   return (
     <Stat>
       <StatLabel color="brand.quaternary">{label}:</StatLabel>
@@ -9,4 +9,4 @@ const PokemonStat = ({ label, value }) => {
   );
 };
 
-export default PokemonStat;
+export default BasicStat;
