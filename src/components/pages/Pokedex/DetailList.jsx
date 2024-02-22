@@ -1,7 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
-import BasicStat from "./BasicStat";
+import Detail from "./Detail";
 
-const StatList = ({ pokemonStats }) => {
+const DetailList = ({ details }) => {
   return (
     <Grid
       color="white"
@@ -13,13 +13,13 @@ const StatList = ({ pokemonStats }) => {
       py="8px"
       alignItems="center"
     >
-      {pokemonStats.map((stat) => (
-        <GridItem key={stat.label}>
-            <BasicStat label={stat.label} value={stat.value}  />
+      {details?.map((detail) => (
+        <GridItem key={detail.label}>
+            <Detail label={detail.label} value={detail.value}  />
         </GridItem>
       ))}
     </Grid>
   );
 };
 
-export default StatList;
+export default DetailList;
