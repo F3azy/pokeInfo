@@ -1,7 +1,7 @@
-import { Flex, Grid, GridItem, Heading, useDisclosure } from "@chakra-ui/react";
+import { Flex, Heading, useDisclosure } from "@chakra-ui/react";
 import { useState } from "react";
-import Move from "./Move";
 import MoveModal from "./MoveModal";
+import MoveList from "./MoveList";
 
 const QUERY = "https://pokeapi.co/api/v2/move/";
 
@@ -48,34 +48,7 @@ const PokemonMoves = ({ moves }) => {
       >
         Moves
       </Heading>
-      <Grid 
-      templateColumns={{base: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)', xl: 'repeat(6, 1fr)'}}
-      h="240px"
-      overflowY="scroll"
-      pt={{ base:"8px", lg:"12px"}}
-      gap={{ base:"16px", md:"20px"}}
-      css={{
-        '&::-webkit-scrollbar': {
-          width: '14px',
-        },
-        '&::-webkit-scrollbar-thumb': {
-          background: "#FFCC00",
-          border: "4px solid rgba(0, 0, 0, 0)",
-          backgroundClip: "padding-box",
-          borderRadius: '24px',
-        },
-      }}
-      >
-      {moves?.map((m) => (
-          <GridItem key={m.move.name}>
-            <Move
-            name={m.move.name}
-            value={m.move.name}
-            onClick={showModal}
-            />
-          </GridItem>
-        ))}
-      </Grid>
+      <MoveList moves={moves} showModal={showModal} />
 
       <MoveModal
         move={move}
