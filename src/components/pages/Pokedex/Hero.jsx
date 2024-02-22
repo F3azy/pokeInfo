@@ -2,7 +2,7 @@ import { Flex, Heading } from "@chakra-ui/react";
 import { capitalizeFirstLetter } from "../../../utils";
 import DetailList from "./DetailList";
 
-const PokemonHeroSection = ({ pokemon }) => {
+const Hero = ({ pokemon }) => {
   const pokemonDetails = [
     {
       label: "Height",
@@ -51,4 +51,4 @@ const PokemonHeroSection = ({ pokemon }) => {
   );
 };
 
-export default PokemonHeroSection;
+export default Hero;
