@@ -6,18 +6,48 @@ import {
   ModalHeader,
   ModalBody,
   ModalCloseButton,
-  Grid,
-  GridItem,
   Spinner,
   Flex,
-  Stat,
-  StatLabel,
-  StatNumber,
 } from "@chakra-ui/react";
+import MoveDetailList from "./MoveDetailList";
 
 const MoveModal = (props) => {
-
   const { move, loading } = props;
+
+  const moveDetails = [
+    {
+      label: "Accuracy",
+      value: move?.accuracy || "None",
+    },
+    {
+      label: "Power",
+      value: move?.power || "None",
+    },
+    {
+      label: "Type",
+      value: move?.type?.name || "None",
+    },
+    {
+      label: "Effect chance",
+      value: move?.effect_chance || "None",
+    },
+    {
+      label: "Power points",
+      value: move?.pp || "None",
+    },
+    {
+      label: "Target",
+      value: move?.target?.name || "None",
+    },
+    {
+      label: "Effect",
+      value:
+        move?.effect_entries[0]?.short_effect.replace(
+          "$effect_chance",
+          move?.effect_chance
+        ) || "None",
+    },
+  ];
 
   return (
     <Modal
@@ -29,7 +59,9 @@ const MoveModal = (props) => {
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>
-          {move?.name ? capitalizeFirstLetter(move.name) + " - Move Stats" : "Loading..."}
+          {move?.name
+            ? capitalizeFirstLetter(move.name) + " - Move Stats"
+            : "Loading..."}
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody>
@@ -38,70 +70,7 @@ const MoveModal = (props) => {
               <Spinner size={"xl"} />
             </Flex>
           )}
-          {move && (
-            <Grid
-              color="white"
-              fontSize={{ base: "16px", lg: "20px" }}
-              templateRows={{ base: "repeat(4, 1fr)", lg: "repeat(3, 1fr)" }}
-              templateColumns={{
-                base: "repeat(2, 1fr)",
-                lg: "repeat(3, auto)",
-              }}
-              rowGap={{ base: 4, lg: 8 }}
-              columnGap={{ base: 10, lg: 2 }}
-              justifyContent={{ base: "start", lg: "space-between" }}
-            >
-              <GridItem>
-                <Stat>
-                  <StatLabel color="brand.quaternary">Accuracy:</StatLabel>
-                  <StatNumber>{move?.accuracy || "None"}</StatNumber>
-                </Stat>
-              </GridItem>
-              <GridItem>
-                <Stat>
-                  <StatLabel color="brand.quaternary">Power:</StatLabel>
-                  <StatNumber>{move?.power || "None"}</StatNumber>
-                </Stat>
-              </GridItem>
-              <GridItem>
-                <Stat>
-                  <StatLabel color="brand.quaternary">Type:</StatLabel>
-                  <StatNumber>{move?.type?.name || "None"}</StatNumber>
-                </Stat>
-              </GridItem>
-              <GridItem>
-                <Stat>
-                  <StatLabel color="brand.quaternary">Effect chance:</StatLabel>
-                  <StatNumber>{move?.effect_chance || "None"}</StatNumber>
-                </Stat>
-              </GridItem>
-              <GridItem>
-                <Stat>
-                  <StatLabel color="brand.quaternary">Power points:</StatLabel>
-                  <StatNumber>{move?.pp || "None"}</StatNumber>
-                </Stat>
-              </GridItem>
-              <GridItem>
-                <Stat>
-                  <StatLabel color="brand.quaternary">Target:</StatLabel>
-                  <StatNumber>{move?.target?.name || "None"}</StatNumber>
-                </Stat>
-              </GridItem>
-              <GridItem rowSpan={1} colSpan={{ base: 2, lg: 3 }}>
-                <Stat>
-                  <StatLabel color="brand.quaternary">Effect:</StatLabel>
-                  <StatNumber>
-                    {move?.effect_entries
-                      ? move?.effect_entries[0]?.short_effect.replace(
-                          "$effect_chance",
-                          move?.effect_chance
-                        )
-                      : "None"}
-                  </StatNumber>
-                </Stat>
-              </GridItem>
-            </Grid>
-          )}
+          {move && <MoveDetailList moveDetails={moveDetails} />}
         </ModalBody>
       </ModalContent>
     </Modal>

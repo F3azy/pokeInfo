@@ -5,7 +5,7 @@ import MoveList from "./MoveList";
 
 const QUERY = "https://pokeapi.co/api/v2/move/";
 
-const PokemonMoves = ({ moves }) => {
+const Moves = ({ moves }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [move, setMove] = useState(null);
@@ -60,4 +60,4 @@ const PokemonMoves = ({ moves }) => {
   );
 };
 
-export default PokemonMoves;
+export default Moves;

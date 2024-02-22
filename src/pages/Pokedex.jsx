@@ -2,7 +2,7 @@ import { Flex, VStack } from "@chakra-ui/react";
 import {
   PokemonImage,
   Hero,
-  PokemonMoves,
+  Moves,
   Loading,
   Error,
 } from "../components";
@@ -27,7 +27,7 @@ const Pokedex = () => {
             <PokemonImage url={pokemon.sprites} />
             <Hero pokemon={pokemon} />
           </Flex>
-          <PokemonMoves moves={pokemon.moves} />
+          <Moves moves={pokemon.moves} />
         </>
       )}
     </VStack>
