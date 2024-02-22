@@ -31,7 +31,7 @@ const Moves = ({ moves }) => {
 
   return (
     <Flex
-      w="100%"
+      w="full"
       direction="column"
       border={{ base:"solid 8px", lg:"solid 12px"}}
       borderRadius="16px"
@@ -40,7 +40,7 @@ const Moves = ({ moves }) => {
     >
       <Heading
         as="h1"
-        w="100%"
+        w="full"
         size={{ base:"lg", lg:"3xl"}}
         color="brand.quaternary"
         borderBottom="solid 1px"

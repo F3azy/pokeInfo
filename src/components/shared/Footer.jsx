@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <Flex
       as="footer"
-      w="100%"
+      w="full"
       bg="brand.primary"
       p="20px 0"
       justify="center"

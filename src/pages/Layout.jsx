@@ -15,7 +15,7 @@ const Layout = () => {
         <Navbar />
       </GridItem>
       <GridItem area={"main"}>
-        <Flex as="main" w="100%" minH="100%" justify="center">
+        <Flex as="main" w="full" minH="100%" justify="center">
           <Flex
             direction="column"
             w={{ base: "100%", lg: "80%", "2xl": "60%" }}

@@ -1,11 +1,5 @@
-import { Flex, VStack } from "@chakra-ui/react";
-import {
-  PokemonImage,
-  Hero,
-  Moves,
-  Loading,
-  Error,
-} from "../components";
+import { VStack } from "@chakra-ui/react";
+import { Hero, Moves, Loading, Error } from "../components";
 import useFetchPokemonDetails from "../hooks/useFetchPokemonDetails";
 
 const Pokedex = () => {
@@ -17,16 +11,7 @@ const Pokedex = () => {
       {error !== "" && <Error message={error} />}
       {pokemon && (
         <>
-          <Flex
-            w="100%"
-            direction={{ base: "column", xl: "row" }}
-            justify="center"
-            align={{ xl: "center" }}
-            gap={{ base: "12px", lg: "36px" }}
-          >
-            <PokemonImage url={pokemon.sprites} />
-            <Hero pokemon={pokemon} />
-          </Flex>
+          <Hero pokemon={pokemon} />
           <Moves moves={pokemon.moves} />
         </>
       )}

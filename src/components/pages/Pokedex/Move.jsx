@@ -6,7 +6,7 @@ const Move = (props) => {
 
   return (
     <Button
-      w="100%"
+      w="full"
       {...props}
       bg="brand.tertiary"
       _hover={{ bg: "brand.quaternary" }}

@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <Flex
       as="header"
-      w="100%"
+      w="full"
       bg="brand.primary"
       py="16px"
       justify="center"
