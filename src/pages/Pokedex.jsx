@@ -1,7 +1,7 @@
 import { Flex, VStack } from "@chakra-ui/react";
 import {
   PokemonImage,
-  PokemonDetails,
+  PokemonHeroSection,
   PokemonMoves,
   Loading,
   Error,
@@ -25,7 +25,7 @@ const Pokedex = () => {
             gap={{ base: "12px", lg: "36px" }}
           >
             <PokemonImage url={pokemon.sprites} />
-            <PokemonDetails pokemon={pokemon} />
+            <PokemonHeroSection pokemon={pokemon} />
           </Flex>
           <PokemonMoves moves={pokemon.moves} />
         </>

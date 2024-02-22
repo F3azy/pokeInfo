@@ -2,7 +2,7 @@ export { default as Loading } from "./shared/Loading";
 export { default as PokeballList } from "./pages/Home/PokeballList";
 export { default as PaginationButtons } from "./pages/Home/PaginationButtons";
 export { default as PokemonImage } from "./pages/Pokedex/PokemonImage";
-export { default as PokemonDetails } from "./pages/Pokedex/PokemonDetails";
+export { default as PokemonHeroSection } from "./pages/Pokedex/PokemonHeroSection";
 export { default as PokemonMoves } from "./pages/Pokedex/PokemonMoves";
 export { default as Error } from "./shared/Error";
 export { default as Navbar } from "./shared/Navbar";
