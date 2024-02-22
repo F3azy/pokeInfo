@@ -1,7 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import BasicStat from "./BasicStat";
 
-const ShowStats = ({ pokemonStats }) => {
+const StatList = ({ pokemonStats }) => {
   return (
     <Grid
       color="white"
@@ -22,4 +22,4 @@ const ShowStats = ({ pokemonStats }) => {
   );
 };
 
-export default ShowStats;
+export default StatList;
