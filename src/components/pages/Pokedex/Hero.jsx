@@ -1,6 +1,6 @@
 import { Flex, Heading } from "@chakra-ui/react";
 import { capitalizeFirstLetter } from "../../../utils";
-import DetailList from "./DetailList";
+import PokemonDetailList from "./PokemonDetailList";
 
 const Hero = ({ pokemon }) => {
   const pokemonDetails = [
@@ -46,7 +46,7 @@ const Hero = ({ pokemon }) => {
       >
         {capitalizeFirstLetter(pokemon.name)} #{pokemon.id}
       </Heading>
-      <DetailList details={pokemonDetails} />
+      <PokemonDetailList details={pokemonDetails} />
     </Flex>
   );
 };

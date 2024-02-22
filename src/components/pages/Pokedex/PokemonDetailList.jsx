@@ -1,7 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import Detail from "./Detail";
 
-const DetailList = ({ details }) => {
+const PokemonDetailList = ({ details }) => {
   return (
     <Grid
       color="white"
@@ -22,4 +22,4 @@ const DetailList = ({ details }) => {
   );
 };
 
-export default DetailList;
+export default PokemonDetailList;
