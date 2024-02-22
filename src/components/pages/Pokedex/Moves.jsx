@@ -48,7 +48,7 @@ const Moves = ({ moves }) => {
       >
         Moves
       </Heading>
-      <MoveList moves={moves} showModal={showModal} />
+      <MoveList moves={moves} showModal={(e) => showModal(e)} />
 
       <MoveModal
         move={move}
