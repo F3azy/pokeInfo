@@ -44,7 +44,8 @@ export const theme = extendTheme({
             secondary: "#0075BE",
             tertiary: "#D5A100",
             quaternary: "#FFCC00",
-        }
+        },
+        red: "#EF2E2E",
     },
     styles: {
         global: () => ({
