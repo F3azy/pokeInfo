@@ -6,9 +6,3 @@ html, body {
     padding: 0;
     margin: 0;
 }
-
-@media (-webkit-device-pixel-ratio: 1.25) {
-    :root {
-      zoom: 0.8;
-    }
-  }
