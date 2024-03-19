@@ -1,4 +1,4 @@
-import { Box, VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import { Hero, Moves, Loading, Error } from "../components";
 import useFetchPokemonDetails from "../hooks/useFetchPokemonDetails";
 
