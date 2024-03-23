@@ -1,4 +1,4 @@
-import { Flex, Text, Stack } from "@chakra-ui/react";
+import { Flex, Stack } from "@chakra-ui/react";
 import { socialIcons } from "../../constans/Footer";
 import SocialIcon from "./SocialIcon";
 import FooterLink from "./FooterLink";
