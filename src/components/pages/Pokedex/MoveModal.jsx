@@ -59,7 +59,7 @@ const MoveModal = (props) => {
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>
-          {move?.name
+          {!loading && move?.name
             ? capitalizeFirstLetter(move.name) + " - Move Stats"
             : "Loading..."}
         </ModalHeader>

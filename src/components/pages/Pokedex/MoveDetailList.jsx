@@ -1,5 +1,4 @@
 import { Grid, GridItem } from "@chakra-ui/react";
-import React from "react";
 import Detail from "./Detail";
 
 const MoveDetailList = ({ moveDetails }) => {
