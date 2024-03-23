@@ -1,40 +1,40 @@
 import { capitalizeFirstLetter } from "../../../utils";
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+  DrawerCloseButton,
   Spinner,
   Flex,
 } from "@chakra-ui/react";
 import MoveDetailList from "./MoveDetailList";
 
-const MoveModal = (props) => {
+const MoveDrawer = (props) => {
   const { moveDetails, moveName, loading } = props;
 
   return (
-    <Modal {...props} preserveScrollBarGap isCentered size="xl">
-      <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>
+    <Drawer {...props} placement="bottom">
+      <DrawerOverlay />
+      <DrawerContent>
+        <DrawerHeader>
           {!loading && moveName
             ? capitalizeFirstLetter(moveName) + " - Move Stats"
             : "Loading..."}
-        </ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
+        </DrawerHeader>
+        <DrawerCloseButton />
+        <DrawerBody>
           {loading && (
             <Flex w={"100%"} h={"250px"} justify={"center"} align={"center"}>
               <Spinner size={"xl"} />
             </Flex>
           )}
           {moveDetails && <MoveDetailList moveDetails={moveDetails} />}
-        </ModalBody>
-      </ModalContent>
-    </Modal>
+        </DrawerBody>
+      </DrawerContent>
+    </Drawer>
   );
 };
 
-export default MoveModal;
+export default MoveDrawer;

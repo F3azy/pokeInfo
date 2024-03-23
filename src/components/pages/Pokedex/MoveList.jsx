@@ -1,7 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import Move from "./Move";
-import MoveModal from "./MoveModal";
 import useShowMoveDetails from "../../../hooks/useShowMoveDetails";
+import MoveDetailDisplay from "./MoveDetailDisplay";
 
 const MoveList = ({ moves }) => {
   const {move, loading, isOpen, hideMoveDetails, showMoveDetails} = useShowMoveDetails();
@@ -36,7 +36,7 @@ const MoveList = ({ moves }) => {
           </GridItem>
         ))}
       </Grid>
-      <MoveModal
+      <MoveDetailDisplay
         move={move}
         loading={loading}
         isOpen={isOpen}
