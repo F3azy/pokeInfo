@@ -31,7 +31,7 @@ const Hero = ({ pokemon }) => {
     <Flex
       w="full"
       direction="column"
-      gap="16px"
+      gap={{ xl: "16px" }}
       border={{ base: "solid 8px", lg: "solid 12px" }}
       borderRadius="16px"
       borderColor={{ base: "brand.primary", lg: "brand.primary" }}
@@ -46,19 +46,23 @@ const Hero = ({ pokemon }) => {
       >
         {capitalizeFirstLetter(pokemon.name)} #{pokemon.id}
       </Heading>
-      <Flex gap="24px">
-      <Image
-        boxSize={{ base: "160px", md: "260px" }}
-        m={{ base: "8px", md: "24px" }}
-        src={pokemon.sprites.front_default}
-        onMouseOver={(e) =>
-          (e.currentTarget.src = pokemon.sprites.back_default)
-        }
-        onMouseLeave={(e) =>
-          (e.currentTarget.src = pokemon.sprites.front_default)
-        }
-        alt="Pokemon Image"
-      />
+      <Flex
+        gap={{ xl: "24px" }}
+        direction={{ base: "column", xl: "row" }}
+        align="center"
+      >
+        <Image
+          boxSize={{ base: "220px", md: "260px" }}
+          m={{ base: "8px", md: "24px" }}
+          src={pokemon.sprites.front_default}
+          onMouseOver={(e) =>
+            (e.currentTarget.src = pokemon.sprites.back_default)
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.src = pokemon.sprites.front_default)
+          }
+          alt="Pokemon Image"
+        />
         <PokemonDetailList details={pokemonDetails} />
       </Flex>
     </Flex>
