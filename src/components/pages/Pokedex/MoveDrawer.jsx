@@ -20,7 +20,7 @@ const MoveDrawer = (props) => {
       <DrawerContent>
         <DrawerHeader>
           {!loading && moveName
-            ? capitalizeFirstLetter(moveName) + " - Move Stats"
+            ? capitalizeFirstLetter(moveName)
             : "Loading..."}
         </DrawerHeader>
         <DrawerCloseButton />

@@ -20,7 +20,7 @@ const MoveModal = (props) => {
       <ModalContent>
         <ModalHeader>
           {!loading && moveName
-            ? capitalizeFirstLetter(moveName) + " - Move Stats"
+            ? capitalizeFirstLetter(moveName)
             : "Loading..."}
         </ModalHeader>
         <ModalCloseButton />
