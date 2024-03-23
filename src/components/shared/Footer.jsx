@@ -21,9 +21,8 @@ const Footer = () => {
         align="center"
         mx={{ base: "8px", md: "32px", lg: "0" }}
       >
-        <Text fontSize="20px">&copy; {new Date().getFullYear()}&nbsp;</Text>
         <FooterLink
-          text="PokeINFO, Powered by"
+          text={`\u00A9${new Date().getFullYear()} PokeINFO, Powered by`}
           linkText="PokeAPI"
           url="https://pokeapi.co/"
         />
