@@ -7,33 +7,10 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import useSearchNavigation from "../../hooks/useSearchNavigation";
 
 const SearchInput = () => {
-  const [pokemonName, setPokemonName] = useState("");
-
-  const navigate = useNavigate();
-
-  function getName(ev) {
-    setPokemonName(ev.target.value.toLowerCase());
-  }
-
-  function searchOnEnter(ev) {
-    if (ev.key === "Enter") {
-      ev.preventDefault();
-      ev.target.blur();
-      search();
-    }
-  }
-
-  function search() {
-    if (pokemonName.length > 0)
-      navigate({
-        pathname: "/pokedex",
-        search: `?name=${pokemonName}`,
-      });
-  }
+  const { getInput, searchOnEnter, search } = useSearchNavigation();
 
   return (
     <Box>
@@ -53,8 +30,8 @@ const SearchInput = () => {
           color="yellow.200"
           placeholder="Pokemon name..."
           _placeholder={{ opacity: 0.4, color: "yellow.200" }}
-          onChange={getName}
-          onKeyDown={searchOnEnter}
+          onChange={(e) => getInput(e)}
+          onKeyDown={(e) => searchOnEnter(e)}
           enterKeyHint="Go"
         />
 
@@ -63,7 +40,7 @@ const SearchInput = () => {
             w="60px"
             bg="yellow.200"
             color="black"
-            onClick={search}
+            onClick={() => search()}
             borderRadius="0 8px 8px 0"
             _groupHover={{ bg: "yellow.400" }}
             _groupActive={{ bg: "yellow.500" }}
