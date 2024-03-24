@@ -4,7 +4,7 @@ import MoveDrawer from "./MoveDrawer";
 import MoveModal from "./MoveModal";
 
 const MoveDetailDisplay = (props) => {
-  const [isLargerThan1280] = useMediaQuery("(min-width: 1280px)");
+  const [isLargerThan768] = useMediaQuery("(min-width: 767px)");
 
   const { move } = props;
 
@@ -45,7 +45,7 @@ const MoveDetailDisplay = (props) => {
     },
   ];
 
-  if (isLargerThan1280)
+  if (isLargerThan768)
     return (
       <MoveModal moveName={moveName} moveDetails={moveDetails} {...props} />
     );

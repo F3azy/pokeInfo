@@ -15,7 +15,7 @@ const MoveModal = (props) => {
   const { moveDetails, moveName, loading } = props;
 
   return (
-    <Modal {...props} preserveScrollBarGap isCentered size="xl">
+    <Modal {...props} preserveScrollBarGap isCentered size="2xl">
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>
